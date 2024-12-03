@@ -9,15 +9,18 @@ public class DnDRepository {
   private final WebClient webClient;
 
   public DnDRepository(WebClient.Builder webClientBuilder) {
-    this.webClient = webClientBuilder.baseUrl("https://www.dnd5api.co/api").build();
+    this.webClient = webClientBuilder.baseUrl("https://www.dnd5eapi.co/api").build();
   }
 
-  public DnDClassResponse getClassResponse(String className) {
+  public DnDClassResponse getClassResponse(String classTypeName) {
     return webClient.get()
-        .uri("/classes/{className}", className)
+        .uri("/classes/{className}", classTypeName)
         .retrieve()
         .bodyToMono(DnDClassResponse.class)
         .block();
   }
+
+
+
 
 }

@@ -1,5 +1,8 @@
 package be.storm.rulecrafterbackend.dl.entities.enums;
 
+import lombok.Getter;
+
+@Getter
 public enum Ability {
   STR("str", "Strength"),
   CHA("cha", "Charisma"),

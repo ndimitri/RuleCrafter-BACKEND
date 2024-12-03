@@ -9,16 +9,22 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
 import jakarta.persistence.OneToOne;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
 
 @Entity
+@NoArgsConstructor
+@AllArgsConstructor
+@Getter
 public class Character extends BaseEntity {
 
   @Column(nullable = false)
   private String name;
 
-  private String classTypeUrl;  // URL vers l'API DnD pour la classe
+  private String classType;  // URL vers l'API DnD pour la classe
 
-  private String raceUrl; // URL vers l'API DnD pour la race
+  private String race; // URL vers l'API DnD pour la race
 
   @Enumerated(EnumType.STRING)
   private Alignment alignment;

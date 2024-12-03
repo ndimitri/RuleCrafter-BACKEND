@@ -1,5 +1,6 @@
 package be.storm.rulecrafterbackend.bll.character;
 
+import be.storm.rulecrafterbackend.dal.models.classResponse.DnDClassResponse;
 import be.storm.rulecrafterbackend.dl.entities.enums.Ability;
 import java.util.List;
 import lombok.AllArgsConstructor;
@@ -19,11 +20,23 @@ public class ClassType {
 
   int hitPointDie;
 
-  List<Ability> savingThrows;
+//  List<Ability> savingThrows;
+//
+//  List<Feature> features;
+//
+//  List<Skill> skills;
+//
+//  List<WeaponMastery> weaponMasteries;
 
-  List<Feature> features;
 
-  List<Skill> skills;
+  public ClassType(DnDClassResponse dndClassResponse) {
+    // Mappe les champs simples
+    this.setName(dndClassResponse.getName());
+    this.setHitPointDie(dndClassResponse.getHit_die());
 
-  List<WeaponMastery> weaponMasteries;
+    // Mappe le champ primaryAbility (par exemple, STR)
+    Ability primaryAbility = Ability.getByApiIndex(dndClassResponse.getSaving_throws().get(0).getIndex());
+    this.setPrimaryAbility(primaryAbility);
+  }
+
 }
