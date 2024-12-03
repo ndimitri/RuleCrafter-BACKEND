@@ -1,5 +1,11 @@
-package be.storm.rulecrafterbackend.dl.enums;
+package be.storm.rulecrafterbackend.dl.entities.enums;
 
+
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+
+@NoArgsConstructor
+@Getter
 public enum Alignment {
   LAWFUL_GOOD("lawful-good", "Lawful Good"),
   LAWFUL_EVIL("lawful-evil", "Lawful Evil"),
