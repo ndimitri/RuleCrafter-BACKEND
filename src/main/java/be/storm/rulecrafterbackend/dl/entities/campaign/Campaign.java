@@ -9,8 +9,7 @@ import jakarta.persistence.FetchType;
 import jakarta.persistence.OneToOne;
 import lombok.*;
 import org.hibernate.validator.constraints.Range;
-
-import java.util.UUID;
+import org.springframework.web.multipart.MultipartFile;
 
 @Entity
 @NoArgsConstructor @AllArgsConstructor
@@ -33,9 +32,9 @@ public class Campaign extends BaseEntity {
     private String partyRecommendation;
 
     @Column(nullable = false, length = 1000)
-    private String summary;
+    private String campaignSummary;
 
-    private String picture;
+    private MultipartFile picture;
 
     @OneToOne(fetch = FetchType.EAGER)
     private Region region;
@@ -49,13 +48,22 @@ public class Campaign extends BaseEntity {
     @OneToOne(fetch = FetchType.EAGER)
     private SideQuest sideQuest;
 
-    public Campaign(Long id, String campaignName, int minCapacity, int maxCapacity, String partyRecommendation, String summary, String picture) {
+    public Campaign(String campaignName, String campaignSummary, int minCapacity, int maxCapacity, String partyRecommendation, MultipartFile picture) {
+        this.campaignName = campaignName;
+        this.campaignSummary = campaignSummary;
+        this.minCapacity = minCapacity;
+        this.maxCapacity = maxCapacity;
+        this.partyRecommendation = partyRecommendation;
+        this.picture = picture;
+    }
+
+    public Campaign(Long id, String campaignName, int minCapacity, int maxCapacity, String partyRecommendation, String summary, MultipartFile picture) {
         super(id);
         this.campaignName = campaignName;
         this.minCapacity = minCapacity;
         this.maxCapacity = maxCapacity;
         this.partyRecommendation = partyRecommendation;
-        this.summary = summary;
+        this.campaignSummary = summary;
         this.picture = picture;
     }
 }
