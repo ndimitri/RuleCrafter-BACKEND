@@ -3,6 +3,8 @@ package be.storm.rulecrafterbackend.dl.entities.campaign;
 import be.storm.rulecrafterbackend.dl.entities.BaseEntity;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
+import jakarta.persistence.ManyToOne;
 import lombok.*;
 
 @Entity
@@ -18,6 +20,9 @@ public class Location extends BaseEntity {
     private String locationDescription;
 
     private String locationPicture;
+
+    @ManyToOne(fetch = FetchType.EAGER)
+    private Campaign campaign;
 
     public Location(Long id, String locationName, String locationDescription, String locationPicture) {
         super(id);

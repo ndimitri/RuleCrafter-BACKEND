@@ -3,6 +3,8 @@ package be.storm.rulecrafterbackend.dl.entities.campaign;
 import be.storm.rulecrafterbackend.dl.entities.BaseEntity;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
+import jakarta.persistence.OneToOne;
 import lombok.*;
 
 @Entity
