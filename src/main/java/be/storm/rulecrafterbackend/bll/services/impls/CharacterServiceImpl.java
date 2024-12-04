@@ -7,6 +7,7 @@ import be.storm.rulecrafterbackend.dal.CharacterRepository;
 import be.storm.rulecrafterbackend.dal.DnDRepository;
 import be.storm.rulecrafterbackend.dal.models.classResponse.DnDClassResponse;
 import be.storm.rulecrafterbackend.dl.entities.character.Character;
+import com.fasterxml.jackson.databind.JsonNode;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -23,8 +24,9 @@ public class CharacterServiceImpl implements CharacterService {
     Character character = characterRepository.findById(id).orElseThrow();
 
     String classTypeName = character.getClassType();
+    ;
 
-    ClassType classType = new ClassType(dnDRepository.getClassResponse(classTypeName));
+    ClassType classType = dnDRepository.getClassResponse(classTypeName);
 
     return new CharacterDTO(character, classType);
   }

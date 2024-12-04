@@ -6,6 +6,7 @@ import be.storm.rulecrafterbackend.bll.character.Skill;
 import be.storm.rulecrafterbackend.dl.entities.enums.Ability;
 import com.fasterxml.jackson.annotation.JsonClassDescription;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.ArrayList;
 import java.util.List;
 import lombok.AllArgsConstructor;
@@ -21,10 +22,17 @@ import org.springframework.web.reactive.function.client.WebClient;
 @Setter
 public class DnDClassResponse {
 
+  @JsonProperty("name")
   private String name;
-  private int hit_die;
+
+  @JsonProperty("hit_die")
+  private int hitPointDie;
+
+  @JsonProperty("saving_throws")
   private List<SavingThrow> saving_throws;
+
   private List<ProficiencyChoice> proficiency_choices;
+
   private MultiClassing multi_classing;  // Ajouter ici les données de multi-classing
 
 //  private final WebClient webClient;

@@ -2,7 +2,6 @@ package be.storm.rulecrafterbackend.bll.character;
 
 import be.storm.rulecrafterbackend.dl.entities.character.AbilityStats;
 import be.storm.rulecrafterbackend.dl.entities.enums.Ability;
-import com.fasterxml.jackson.annotation.JsonUnwrapped;
 import java.util.HashMap;
 import java.util.Map;
 import lombok.Getter;
@@ -10,7 +9,6 @@ import lombok.Getter;
 @Getter
 public class Abilities {
 
-  @JsonUnwrapped
   private Map<String, AbilityDetail> abilities = new HashMap<>();
 
 

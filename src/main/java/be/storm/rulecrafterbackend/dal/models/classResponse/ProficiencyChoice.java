@@ -14,14 +14,12 @@ public class ProficiencyChoice {
   @Getter
   @Setter
   public static class Options {
-    private String option_set_type;
-    private List<Options.Option> options;
+    private List<Option> options;
 
     @Getter
     @Setter
     public static class Option {
-      private String option_type;
-      private Options.Option.Item item;
+      private Item item;
 
       @Getter
       @Setter
