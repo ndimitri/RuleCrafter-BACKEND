@@ -1,11 +1,12 @@
 spring:
   datasource:
-    url: jdbc:postgresql://localhost:5432/rulecrafter
+    url: jdbc:postgresql://localhost:5432/rule_crafter
     username: postgres
     password: Test1234=
     driver-class-name: org.postgresql.Driver
   jpa:
     hibernate:
+      dialect: org.hibernate.dialect.PostgreSQLDialect
       ddl-auto: create
     show-sql: true
     properties:

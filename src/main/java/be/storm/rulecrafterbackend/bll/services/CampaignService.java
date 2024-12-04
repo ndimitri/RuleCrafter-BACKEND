@@ -7,5 +7,6 @@ import java.util.List;
 
 public interface CampaignService {
 
+    List<Campaign> findAll();
     Campaign save(Campaign campaign, MultipartFile picture);
 }

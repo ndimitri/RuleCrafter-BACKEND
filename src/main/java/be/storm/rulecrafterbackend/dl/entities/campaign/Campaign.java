@@ -3,18 +3,18 @@ package be.storm.rulecrafterbackend.dl.entities.campaign;
 import be.storm.rulecrafterbackend.dl.entities.BaseEntity;
 import be.storm.rulecrafterbackend.dl.entities.quest.MainQuest;
 import be.storm.rulecrafterbackend.dl.entities.quest.SideQuest;
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.FetchType;
-import jakarta.persistence.OneToOne;
+import jakarta.persistence.*;
 import lombok.*;
+import org.hibernate.annotations.SQLDelete;
 import org.hibernate.validator.constraints.Range;
 import org.springframework.web.multipart.MultipartFile;
 
 @Entity
-@NoArgsConstructor @AllArgsConstructor
+@SQLDelete(sql = "update Campaign set is_deleted = true where id = ?")
+@NoArgsConstructor
 @Getter @Setter
-@EqualsAndHashCode(callSuper = true) @ToString(callSuper = true)
+@EqualsAndHashCode(callSuper = true, of = {"campaignName", "minCapacity", "maxCapacity", "partyRecommendation", "campaignSummary"})
+@ToString(callSuper = true, of = {"campaignName", "minCapacity", "maxCapacity", "partyRecommendation", "campaignSummary"})
 public class Campaign extends BaseEntity {
 
     @Column(nullable = false, length = 123)
@@ -34,7 +34,10 @@ public class Campaign extends BaseEntity {
     @Column(nullable = false, length = 1000)
     private String campaignSummary;
 
-    private MultipartFile picture;
+//    private MultipartFile picture;
+
+    @Column(nullable = false)
+    private final boolean isDeleted = false;
 
     @OneToOne(fetch = FetchType.EAGER)
     private Region region;
@@ -48,13 +51,21 @@ public class Campaign extends BaseEntity {
     @OneToOne(fetch = FetchType.EAGER)
     private SideQuest sideQuest;
 
+    public Campaign(Long id, String campaignName, String campaignSummary, int minCapacity, int maxCapacity) {
+        super(id);
+        this.campaignName = campaignName;
+        this.campaignSummary = campaignSummary;
+        this.minCapacity = minCapacity;
+        this.maxCapacity = maxCapacity;
+    }
+
     public Campaign(String campaignName, String campaignSummary, int minCapacity, int maxCapacity, String partyRecommendation, MultipartFile picture) {
         this.campaignName = campaignName;
         this.campaignSummary = campaignSummary;
         this.minCapacity = minCapacity;
         this.maxCapacity = maxCapacity;
         this.partyRecommendation = partyRecommendation;
-        this.picture = picture;
+//        this.picture = picture;
     }
 
     public Campaign(Long id, String campaignName, int minCapacity, int maxCapacity, String partyRecommendation, String summary, MultipartFile picture) {
@@ -64,6 +75,6 @@ public class Campaign extends BaseEntity {
         this.maxCapacity = maxCapacity;
         this.partyRecommendation = partyRecommendation;
         this.campaignSummary = summary;
-        this.picture = picture;
+//        this.picture = picture;
     }
 }
