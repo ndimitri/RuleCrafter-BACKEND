@@ -1,42 +1,50 @@
 package be.storm.rulecrafterbackend.pl.controllers.security;
 
 import be.storm.rulecrafterbackend.bll.services.UserService;
+import be.storm.rulecrafterbackend.bll.services.security.AuthService;
 import be.storm.rulecrafterbackend.dl.entities.user.User;
-import org.apache.coyote.Response;
-import org.springframework.beans.factory.annotation.Autowired;
+import be.storm.rulecrafterbackend.il.utils.JwtUtils;
+import be.storm.rulecrafterbackend.pl.models.dtos.user.UserDTO;
+import be.storm.rulecrafterbackend.pl.models.dtos.user.UserTokenDTO;
+import be.storm.rulecrafterbackend.pl.models.forms.user.LoginForm;
+import be.storm.rulecrafterbackend.pl.models.forms.user.RegisterForm;
+import jakarta.validation.Valid;
+import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.core.Authentication;
-import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.*;
 
-@CrossOrigin(origins = "http://localhost:4200")
+@CrossOrigin("*")
 @RestController
 @RequestMapping("/auth")
+@RequiredArgsConstructor
 public class AuthController {
 
     private final UserService userService;
+    private final JwtUtils jwtUtils;
+    private final AuthService authService;
 
-    @Autowired
-    public AuthController(UserService userService) {
-        this.userService = userService;
-    }
+    public ResponseEntity<User> registerUser(@RequestBody RegisterForm form) {
 
-    public ResponseEntity<User> registerUser(@RequestBody User user) {
-
-        if (userService.findByUsername(user.getUsername()).isPresent()) {
-            return ResponseEntity.badRequest().build();
-        }
-        userService.saveUser(user);
+        authService.register(form.toUser());
         return ResponseEntity.noContent().build();
     }
 
-    @GetMapping("/login")
-    public ResponseEntity<User> getCurrentUser() {
-        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-        String currentUsername = authentication.getName();
-        return userService.findByUsername(currentUsername)
-                .map(ResponseEntity::ok)
-                .orElseGet(() -> ResponseEntity.badRequest().build());
+    @PostMapping("/login")
+    public ResponseEntity<UserTokenDTO> login(
+            @Valid @RequestBody LoginForm form
+    ) {
+        User user = authService.login(form.toUser());
+        UserDTO dto = UserDTO.fromUser(user);
+        UserTokenDTO tokenDTO = new UserTokenDTO(dto, jwtUtils.generateToken(user));
+        return ResponseEntity.ok(tokenDTO);
+    }
+
+    @PostMapping("/register")
+    public ResponseEntity<Void> register(
+            @Valid @RequestBody RegisterForm form
+    ) {
+        authService.register(form.toUser());
+        return ResponseEntity.noContent().build();
     }
 }
 
