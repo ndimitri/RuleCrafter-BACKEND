@@ -23,7 +23,7 @@ public class UserService {
 
     public User saveUser(User user) {
         if(userRepository.existsByUsernameOrEmail(user.getUsername(),user.getEmail())){
-            throw new RuntimeException();
+            throw new RuntimeException("User With " + user.getUsername() + " already exists or user with" + user.getEmail() + " already exists");
         }
         user.setPassword(passwordEncoder.encode(user.getPassword()));
         return userRepository.save(user);
