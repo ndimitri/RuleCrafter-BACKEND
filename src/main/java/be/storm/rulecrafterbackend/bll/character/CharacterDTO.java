@@ -2,8 +2,6 @@ package be.storm.rulecrafterbackend.bll.character;
 
 import be.storm.rulecrafterbackend.dl.entities.character.AbilityStats;
 import be.storm.rulecrafterbackend.dl.entities.character.Character;
-import be.storm.rulecrafterbackend.dl.entities.enums.Ability;
-import be.storm.rulecrafterbackend.dl.entities.enums.Alignment;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -23,7 +21,7 @@ public class CharacterDTO {
 
 //  private Race race;
 
-  private Alignment alignment;
+  private String alignment;
 
 //  private Abilities abilities;
   private List<AbilityDetail> abilities;
@@ -36,7 +34,7 @@ public class CharacterDTO {
   public CharacterDTO(Character character, ClassType classType) {
     this.id = character.getId();
     this.name = character.getName();
-    this.alignment = character.getAlignment();
+    this.alignment = character.getAlignment().getName();
 //    this.abilities = new Abilities(character.getAbilities());
     this.abilities = new ArrayList<>();
     setAbilities(character.getAbilities());
@@ -51,6 +49,7 @@ public class CharacterDTO {
     this.abilities.add(new AbilityDetail("con", abilities.getCon()));
     this.abilities.add(new AbilityDetail("int", abilities.getIntel()));
     this.abilities.add(new AbilityDetail("wis", abilities.getWis()));
+    this.abilities.add(new AbilityDetail("dex", abilities.getDex()));
   }
 
 

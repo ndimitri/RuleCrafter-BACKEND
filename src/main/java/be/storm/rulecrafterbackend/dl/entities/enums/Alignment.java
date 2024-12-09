@@ -4,7 +4,6 @@ package be.storm.rulecrafterbackend.dl.entities.enums;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
-@NoArgsConstructor
 @Getter
 public enum Alignment {
   LAWFUL_GOOD("lawful-good", "Lawful Good"),
@@ -19,8 +18,13 @@ public enum Alignment {
   CHAOTIC_EVIL("chaotic-evil", "Chaotic Evil"),
   CHAOTIC_NEUTRAL("chaotic-neutral", "Chaotic Neutral");
 
+  private final String name;
+  private final String apiIndex;
+
 
   Alignment(String apiIndex, String name) {
+    this.name = name;
+    this.apiIndex = apiIndex;
   }
 
 

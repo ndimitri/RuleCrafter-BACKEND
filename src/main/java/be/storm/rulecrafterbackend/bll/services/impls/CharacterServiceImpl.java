@@ -24,7 +24,7 @@ public class CharacterServiceImpl implements CharacterService {
     Character character = characterRepository.findById(id).orElseThrow();
 
     String classTypeName = character.getClassType();
-    ;
+
 
     ClassType classType = dnDRepository.getClassResponse(classTypeName);
 
