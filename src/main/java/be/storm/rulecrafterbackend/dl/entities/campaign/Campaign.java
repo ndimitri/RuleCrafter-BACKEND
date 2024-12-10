@@ -10,12 +10,13 @@ import org.hibernate.validator.constraints.Range;
 import org.springframework.web.multipart.MultipartFile;
 
 @Entity
-@SQLDelete(sql = "update Campaign set is_deleted = true where id = ?")
+//@SQLDelete(sql = "update Campaign set is_deleted = true where id = ?")
 @NoArgsConstructor
 @Getter @Setter
 @EqualsAndHashCode(callSuper = true, of = {"campaignName", "minCapacity", "maxCapacity", "partyRecommendation", "campaignSummary"})
 @ToString(callSuper = true, of = {"campaignName", "minCapacity", "maxCapacity", "partyRecommendation", "campaignSummary"})
 public class Campaign extends BaseEntity {
+
 
     @Column(nullable = false, length = 123)
     private String campaignName;
@@ -39,17 +40,17 @@ public class Campaign extends BaseEntity {
     @Column(nullable = false)
     private final boolean isDeleted = false;
 
-    @OneToOne(fetch = FetchType.EAGER)
-    private Region region;
-
-    @OneToOne(fetch = FetchType.EAGER)
-    private Scenario scenario;
-
-    @OneToOne(fetch = FetchType.EAGER)
-    private MainQuest mainQuest;
-
-    @OneToOne(fetch = FetchType.EAGER)
-    private SideQuest sideQuest;
+//    @OneToOne(fetch = FetchType.EAGER)
+//    private Region region;
+//
+//    @OneToOne(fetch = FetchType.EAGER)
+//    private Scenario scenario;
+//
+//    @OneToOne(fetch = FetchType.EAGER)
+//    private MainQuest mainQuest;
+//
+//    @OneToOne(fetch = FetchType.EAGER)
+//    private SideQuest sideQuest;
 
     public Campaign(Long id, String campaignName, String campaignSummary, int minCapacity, int maxCapacity) {
         super(id);

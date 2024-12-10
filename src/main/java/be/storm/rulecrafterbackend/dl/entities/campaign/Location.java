@@ -21,8 +21,8 @@ public class Location extends BaseEntity {
 
     private String locationPicture;
 
-    @ManyToOne(fetch = FetchType.EAGER)
-    private Campaign campaign;
+//    @ManyToOne(fetch = FetchType.EAGER)
+//    private Campaign campaign;
 
     public Location(Long id, String locationName, String locationDescription, String locationPicture) {
         super(id);
