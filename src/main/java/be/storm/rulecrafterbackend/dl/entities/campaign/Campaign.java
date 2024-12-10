@@ -13,8 +13,8 @@ import org.springframework.web.multipart.MultipartFile;
 //@SQLDelete(sql = "update Campaign set is_deleted = true where id = ?")
 @NoArgsConstructor
 @Getter @Setter
-@EqualsAndHashCode(callSuper = true, of = {"campaignName", "minCapacity", "maxCapacity", "partyRecommendation", "campaignSummary"})
-@ToString(callSuper = true, of = {"campaignName", "minCapacity", "maxCapacity", "partyRecommendation", "campaignSummary"})
+@EqualsAndHashCode(callSuper = true)
+@ToString(callSuper = true)
 public class Campaign extends BaseEntity {
 
 
@@ -52,12 +52,12 @@ public class Campaign extends BaseEntity {
 //    @OneToOne(fetch = FetchType.EAGER)
 //    private SideQuest sideQuest;
 
-    public Campaign(Long id, String campaignName, String campaignSummary, int minCapacity, int maxCapacity) {
-        super(id);
+    public Campaign(String campaignName, String campaignSummary, int minCapacity, int maxCapacity, String partyRecommendation) {
         this.campaignName = campaignName;
         this.campaignSummary = campaignSummary;
         this.minCapacity = minCapacity;
         this.maxCapacity = maxCapacity;
+        this.partyRecommendation = partyRecommendation;
     }
 
     public Campaign(String campaignName, String campaignSummary, int minCapacity, int maxCapacity, String partyRecommendation, MultipartFile picture) {

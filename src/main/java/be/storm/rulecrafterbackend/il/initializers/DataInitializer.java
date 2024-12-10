@@ -21,7 +21,6 @@ public class DataInitializer implements CommandLineRunner {
 
             List<Campaign> campaigns = List.of(
                     new Campaign(
-                            1L,
                             "Les Ruines de l'Éclipse Sombre",
                             "Un ancien temple oublié refait surface dans les montagnes maudites, coïncidant avec une éclipse " +
                                     "rare. Les érudits prétendent que le temple abrite un artefact capable de plonger le monde " +
@@ -30,10 +29,10 @@ public class DataInitializer implements CommandLineRunner {
                                     "malédiction du temple altère leurs esprits, les forçant à faire face à leurs propres " +
                                     "ténèbres intérieures.",
                             2,
-                            4
+                            4,
+                            "Besoin d'un mage"
                     ),
                     new Campaign(
-                            2L,
                             "Le Pacte des Mers Brisées",
                             "Des navires disparaissent dans une région maritime entourée de légendes. On parle d'un ancien " +
                                     "pacte entre les dieux de la mer et un capitaine déchu, dont la flotte fantôme hanterait " +
@@ -41,10 +40,10 @@ public class DataInitializer implements CommandLineRunner {
                                     "tempêtes magiques, des îles oubliées et des créatures marines pour briser la malédiction. " +
                                     "Leur quête les mènera à décider du destin de la mer elle-même.",
                             1,
-                            3
+                            3,
+                            "Besoin d'un gros tank"
                     ),
                     new Campaign(
-                            3L,
                             "Les Flammes de l’Empire Cendré",
                             "L’empire prospère d’Arcanis est en ruines après qu’un dragon ancestral a ravagé ses capitales. " +
                                     "Les héros, parmi les rares survivants, découvrent que ce n’est pas une simple attaque, " +
@@ -52,10 +51,10 @@ public class DataInitializer implements CommandLineRunner {
                                     "Armés de reliques des temps passés, ils doivent rassembler les derniers bastions de " +
                                     "résistance et défier les conspirateurs avant que le monde ne soit consumé par le feu.",
                             1,
-                            5
+                            5,
+                            "Besoin d'un voleur"
                     ),
                     new Campaign(
-                            4L,
                             "Le Requiem du Dieu Brisé",
                             "Des rumeurs circulent sur un fragment d’un dieu déchu qui aurait atterri dans une vallée isolée. " +
                                     "Ce fragment émet une énergie corruptrice, transformant les habitants en monstres et " +
@@ -63,10 +62,10 @@ public class DataInitializer implements CommandLineRunner {
                                     "organisation pour récupérer le fragment, mais ils découvrent que d’autres factions – " +
                                     "certains dévoués à la résurrection du dieu – convoitent également cette relique divine.",
                             3,
-                            6
+                            6,
+                            "Besoin d'un barde"
                     ),
                     new Campaign(
-                            5L,
                             "La Chute des Étoiles d’Argent",
                             "Une pluie d’étoiles filantes s’abat sur le royaume de Lysara, laissant derrière elle des cristaux " +
                                     "scintillants. Mais ces cristaux ne sont pas que des merveilles : ils éveillent des portails " +
@@ -74,10 +73,10 @@ public class DataInitializer implements CommandLineRunner {
                                     "sur l’origine des étoiles et voyager entre les plans pour sceller les portails avant que " +
                                     "la réalité ne soit déchirée par une invasion cosmique.",
                             1,
-                            2
+                            2,
+                            "Besoin d'une team full stuff"
                     ),
                     new Campaign(
-                            6L,
                             "Les Ombres de l’Arche Interdite",
                             "Une arche massive, enveloppée dans des ombres surnaturelles, apparaît soudainement dans une grande " +
                                     "ville. Personne ne peut la franchir sans disparaître, mais les rumeurs parlent de trésors " +
@@ -86,7 +85,8 @@ public class DataInitializer implements CommandLineRunner {
                                     "que l’intérieur défie les lois de la réalité. Chaque salle est un défi qui les rapproche " +
                                     "d’une entité qui rêve de remodeler le monde à son image.",
                             3,
-                            5
+                            5,
+                            "Besoin de rien envie de toiiiiiii"
                     )
             );
             campaignRepository.saveAll(campaigns);

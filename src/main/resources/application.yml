@@ -1,6 +1,6 @@
 spring:
   datasource:
-    url: jdbc:postgresql://localhost:5432/rule_crafter
+    url: jdbc:postgresql://localhost:5432/rulecrafter
     username: postgres
     password: Test1234=
     driver-class-name: org.postgresql.Driver
