@@ -30,7 +30,10 @@ public class DataInitializer implements CommandLineRunner {
                                     "ténèbres intérieures.",
                             2,
                             4,
-                            "Besoin d'un mage"
+                            "Besoin d'un mage",
+                            "Rule_crafter_1.png",
+                            "Rule_crafter_2.png",
+                            "Rule_crafter_3.png"
                     ),
                     new Campaign(
                             "Le Pacte des Mers Brisées",
@@ -41,7 +44,10 @@ public class DataInitializer implements CommandLineRunner {
                                     "Leur quête les mènera à décider du destin de la mer elle-même.",
                             1,
                             3,
-                            "Besoin d'un gros tank"
+                            "Besoin d'un gros tank",
+                            "Rule_crafter_1.png",
+                            "Rule_crafter_2.png",
+                            "Rule_crafter_3.png"
                     ),
                     new Campaign(
                             "Les Flammes de l’Empire Cendré",
@@ -52,7 +58,10 @@ public class DataInitializer implements CommandLineRunner {
                                     "résistance et défier les conspirateurs avant que le monde ne soit consumé par le feu.",
                             1,
                             5,
-                            "Besoin d'un voleur"
+                            "Besoin d'un voleur",
+                            "Rule_crafter_1.png",
+                            "Rule_crafter_2.png",
+                            "Rule_crafter_3.png"
                     ),
                     new Campaign(
                             "Le Requiem du Dieu Brisé",
@@ -63,7 +72,10 @@ public class DataInitializer implements CommandLineRunner {
                                     "certains dévoués à la résurrection du dieu – convoitent également cette relique divine.",
                             3,
                             6,
-                            "Besoin d'un barde"
+                            "Besoin d'un barde",
+                            "Rule_crafter_1.png",
+                            "Rule_crafter_2.png",
+                            "Rule_crafter_3.png"
                     ),
                     new Campaign(
                             "La Chute des Étoiles d’Argent",
@@ -74,7 +86,10 @@ public class DataInitializer implements CommandLineRunner {
                                     "la réalité ne soit déchirée par une invasion cosmique.",
                             1,
                             2,
-                            "Besoin d'une team full stuff"
+                            "Besoin d'une team full stuff",
+                            "Rule_crafter_1.png",
+                            "Rule_crafter_2.png",
+                            "Rule_crafter_3.png"
                     ),
                     new Campaign(
                             "Les Ombres de l’Arche Interdite",
@@ -86,7 +101,10 @@ public class DataInitializer implements CommandLineRunner {
                                     "d’une entité qui rêve de remodeler le monde à son image.",
                             3,
                             5,
-                            "Besoin de rien envie de toiiiiiii"
+                            "Besoin de rien envie de toiiiiiii",
+                            "Rule_crafter_1.png",
+                            "Rule_crafter_2.png",
+                            "Rule_crafter_3.png"
                     )
             );
             campaignRepository.saveAll(campaigns);

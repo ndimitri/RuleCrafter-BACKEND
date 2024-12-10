@@ -26,6 +26,15 @@ public class CampaignServiceImpl implements CampaignService {
     }
 
     @Override
+    public Campaign findById(Long id) {
+        Campaign campaign = campaignRepository.findById(id).orElseThrow();
+        if(campaign.isDeleted()) {
+            throw new RuntimeException("Campaign deleted");
+        }
+        return campaign;
+    }
+
+    @Override
     public Campaign save(Campaign campaign, MultipartFile picture) {
 
         if (picture != null && !picture.isEmpty()) {

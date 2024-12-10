@@ -35,7 +35,14 @@ public class Campaign extends BaseEntity {
     @Column(nullable = false, length = 1000)
     private String campaignSummary;
 
-//    private MultipartFile picture;
+    @Column
+    private String pictureWorldOverview;
+
+    @Column
+    private String pictureQuestOverview;
+
+    @Column
+    private String pictureRules;
 
     @Column(nullable = false)
     private final boolean isDeleted = false;
@@ -60,22 +67,33 @@ public class Campaign extends BaseEntity {
         this.partyRecommendation = partyRecommendation;
     }
 
-    public Campaign(String campaignName, String campaignSummary, int minCapacity, int maxCapacity, String partyRecommendation, MultipartFile picture) {
+    public Campaign(Long id, String campaignName, String campaignSummary, int minCapacity, int maxCapacity) {
+        super(id);
+        this.campaignName = campaignName;
+        this.campaignSummary = campaignSummary;
+        this.minCapacity = minCapacity;
+        this.maxCapacity = maxCapacity;
+    }
+
+    public Campaign(String campaignName, String campaignSummary, int minCapacity, int maxCapacity, String partyRecommendation,
+                    String pictureWorldOverview, String pictureQuestOverview, String pictureRules) {
         this.campaignName = campaignName;
         this.campaignSummary = campaignSummary;
         this.minCapacity = minCapacity;
         this.maxCapacity = maxCapacity;
         this.partyRecommendation = partyRecommendation;
-//        this.picture = picture;
+        this.pictureWorldOverview = pictureWorldOverview;
+        this.pictureQuestOverview = pictureQuestOverview;
+        this.pictureRules = pictureRules;
     }
 
-    public Campaign(Long id, String campaignName, int minCapacity, int maxCapacity, String partyRecommendation, String summary, MultipartFile picture) {
+
+    public Campaign(Long id, String campaignName, int minCapacity, int maxCapacity, String partyRecommendation, String summary) {
         super(id);
         this.campaignName = campaignName;
         this.minCapacity = minCapacity;
         this.maxCapacity = maxCapacity;
         this.partyRecommendation = partyRecommendation;
         this.campaignSummary = summary;
-//        this.picture = picture;
     }
 }

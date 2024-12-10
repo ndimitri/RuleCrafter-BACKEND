@@ -8,5 +8,6 @@ import java.util.List;
 public interface CampaignService {
 
     List<Campaign> findAll();
+    Campaign findById(Long id);
     Campaign save(Campaign campaign, MultipartFile picture);
 }
