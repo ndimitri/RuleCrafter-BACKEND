@@ -1,8 +1,23 @@
 package be.storm.rulecrafterbackend.il.initializers;
 
-import be.storm.rulecrafterbackend.dal.CharacterFullRepository;
-import be.storm.rulecrafterbackend.dl.entities.character.AbilityStats;
-import be.storm.rulecrafterbackend.dl.entities.character.CharacterFull;
+import be.storm.rulecrafterbackend.dal.CharacterRepository;
+
+import be.storm.rulecrafterbackend.dl.entities.character.Character;
+
+import be.storm.rulecrafterbackend.dl.entities.character.ClassLevel;
+import be.storm.rulecrafterbackend.dl.entities.character.Description;
+import be.storm.rulecrafterbackend.dl.entities.character.Feat;
+import be.storm.rulecrafterbackend.dl.entities.character.Item;
+import be.storm.rulecrafterbackend.dl.entities.character.Price;
+import be.storm.rulecrafterbackend.dl.entities.character.Proficiency;
+import be.storm.rulecrafterbackend.dl.entities.character.Spell;
+import be.storm.rulecrafterbackend.dl.entities.character.Stat;
+import be.storm.rulecrafterbackend.dl.entities.enums.Alignment;
+import be.storm.rulecrafterbackend.dl.entities.enums.ItemRarity;
+import be.storm.rulecrafterbackend.dl.entities.enums.ItemType;
+import be.storm.rulecrafterbackend.dl.entities.enums.MagicSchool;
+import be.storm.rulecrafterbackend.dl.entities.enums.SpellLevel;
+
 import java.util.List;
 import java.util.Map;
 import lombok.RequiredArgsConstructor;
@@ -13,74 +28,84 @@ import org.springframework.stereotype.Component;
 @RequiredArgsConstructor
 public class DataInitializer implements CommandLineRunner {
 
-  private final CharacterFullRepository characterFullRepository;
+  private final CharacterRepository characterRepository;
 
   @Override
   public void run(String... args) throws Exception {
-    if(characterFullRepository.count() == 0) {
-      // Exemple de personnage 1
-      CharacterFull thalanor = new CharacterFull();
-      thalanor.setName("Thalanor");
-      thalanor.setClassType("Magicien");
-      thalanor.setRace("Elfe");
-      thalanor.setAlignment("Neutre Bon");
-      thalanor.setLevel(5);
-      thalanor.setHitPointsMax(38);
-      thalanor.setHitPointsCurrent(28);
-      thalanor.setLanguages(List.of("Elfe", "Commun"));
-      thalanor.setSkills(Map.of(
-          "Arcane", 8,
-          "Histoire", 7,
-          "Perception", 5
-      ));
-      thalanor.setAttacks(List.of("Rayon de givre", "Boule de feu"));
-      thalanor.setInventory(List.of("Bâton magique", "Livre de sorts"));
-      thalanor.setFeatures(List.of("Vision dans le noir", "Résistance aux charmes"));
-      AbilityStats abilityStats = new AbilityStats();
-      abilityStats.setStr(5);
-      abilityStats.setDex(10);
-      abilityStats.setIntel(5);
-      abilityStats.setCha(6);
-      abilityStats.setCon(9);
-      abilityStats.setWis(8);
-//      thalanor.setAbilities(Map.of(
-//          "str", 5,
-//          "dex" , 6,
-//          "wis" , 8,
-//          "con" , 10,
-//          "cha" , 3,
-//          "int" , 5
-//      ));
-      thalanor.setAbilities(abilityStats);
+
+    if(characterRepository.count() == 0){
+      Character nike = new Character();
+      nike.setName("Nicolus");
+      nike.setHp(15);
+      nike.setRace("human");
+      nike.setAlignment(Alignment.CHAOTIC_NEUTRAL);
+      nike.setBackstory("Solo wolf hunter");
+
+      // Description
+      Description description = new Description("24", "178cm", "70kg", "brown", "black", "brown");
+      nike.setDescription(description);
+
+      // Stats
+      List<Stat> stats = List.of(
+          new Stat("strength", "str", 9),
+          new Stat("dexterity", "dex", 13),
+          new Stat("constitution", "con", 15),
+          new Stat("intelligence", "int", 7),
+          new Stat("wisdom", "wis", 4),
+          new Stat("charisma", "cha", 10)
+      );
+      nike.setStats(stats);
+
+      // Feats
+      List<Feat> feats = List.of(
+          new Feat("Brave", "You have advantage on saving throw against being frightened.", List.of())
+      );
+      nike.setFeats(feats);
+
+      // Classes
+      List<ClassLevel> classLevels = List.of(
+          new ClassLevel("barbarian", 1),
+          new ClassLevel("wizard", 1)
+      );
+      nike.setClasses(classLevels);
+
+      // Saving Throws
+      Map<String, Integer> savingThrows = Map.of(
+          "Strength", 0,
+          "Dexterity", 0,
+          "Constitution", 0,
+          "Intelligence", 0,
+          "Wisdom", 0,
+          "Charisma", 0
+      );
+      nike.setSavingThrows(savingThrows);
+
+      // Proficiencies
+      Map<String, Proficiency> proficiencies = Map.of(
+          "Acrobatics", new Proficiency(2, "Dexterity"),
+          "Animal Handling", new Proficiency(0, "Wisdom"),
+          "Arcana", new Proficiency(2, "Intelligence")
+      );
+      nike.setProficiencies(proficiencies);
 
 
-      // Exemple de personnage 2
-      CharacterFull gorran = new CharacterFull();
-      gorran.setName("Gorran le Brave");
-      gorran.setClassType("Guerrier");
-      gorran.setRace("Humain");
-      gorran.setAlignment("Loyal Bon");
-      gorran.setLevel(4);
-      gorran.setHitPointsMax(42);
-      gorran.setHitPointsCurrent(36);
-      gorran.setLanguages(List.of("Commun", "Nain"));
-      gorran.setSkills(Map.of(
-          "Athlétisme", 7,
-          "Intimidation", 6
-      ));
-      gorran.setAttacks(List.of("Épée longue", "Hache de bataille"));
-      gorran.setInventory(List.of("Armure lourde", "Bouclier d'acier"));
-      gorran.setFeatures(List.of("Attaque supplémentaire", "Défenseur robuste"));
-      AbilityStats abilityStats2 = new AbilityStats();
-      abilityStats2.setStr(7);
-      abilityStats2.setDex(7);
-      abilityStats2.setIntel(7);
-      abilityStats2.setCha(7);
-      abilityStats2.setCon(7);
-      abilityStats2.setWis(7);
-      gorran.setAbilities(abilityStats2);
+      // Items
+      List<Item> items = List.of(
+          new Item("Hiradia", "Hache ayant appartenu au dieu du caillou", "10kg", ItemRarity.LEGENDARY, ItemType.WEAPON, new Price(13, "gold"), List.of())
+      );
+      nike.setItems(items);
 
-      characterFullRepository.saveAll(List.of(thalanor, gorran));
+      //Spells
+      List<Spell> spells = List.of(
+          new Spell("Déluge", SpellLevel.LEVEL_3, MagicSchool.NECROMANCY, "15s", "100m", "5min", "le plus grand champ de bataille morts", List.of())
+      );
+
+
+      // Background
+      nike.setBackground("Sage");
+
+      // Sauvegarde
+      characterRepository.save(nike);
 
     }
 

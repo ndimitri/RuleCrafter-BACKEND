@@ -6,26 +6,19 @@ import lombok.NoArgsConstructor;
 
 @Getter
 public enum Alignment {
-  LAWFUL_GOOD("lawful-good", "Lawful Good"),
-  LAWFUL_EVIL("lawful-evil", "Lawful Evil"),
-  LAWFUL_NEUTRAL("lawful-neutral", "Lawful Neutral"),
+  LAWFUL_GOOD,
+  LAWFUL_EVIL,
+  LAWFUL_NEUTRAL,
 
-  NEUTRAL_GOOD("neutral-good", "Neutral Good"),
-  NEUTRAL_EVIL("neutral-evil", "Neutral Evil"),
-  NEUTRAL_TRUE("neutral", "True Neutral"),
+  NEUTRAL_GOOD,
+  NEUTRAL_EVIL,
+  NEUTRAL_TRUE,
 
-  CHAOTIC_GOOD("chaotic-good", "Chaotic Good"),
-  CHAOTIC_EVIL("chaotic-evil", "Chaotic Evil"),
-  CHAOTIC_NEUTRAL("chaotic-neutral", "Chaotic Neutral");
-
-  private final String name;
-  private final String apiIndex;
+  CHAOTIC_GOOD,
+  CHAOTIC_EVIL,
+  CHAOTIC_NEUTRAL;
 
 
-  Alignment(String apiIndex, String name) {
-    this.name = name;
-    this.apiIndex = apiIndex;
-  }
 
 
 }

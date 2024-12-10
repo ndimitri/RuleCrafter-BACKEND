@@ -2,23 +2,20 @@ package be.storm.rulecrafterbackend.dl.entities.character;
 
 import be.storm.rulecrafterbackend.dl.entities.BaseEntity;
 import jakarta.persistence.Entity;
-
+import jakarta.persistence.Table;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+@Entity
+@Table(name = "rollable_propreties")
 @Getter
 @Setter
-@Entity
 @NoArgsConstructor
-public class AbilityStats extends BaseEntity {
-
-  private int str;
-  private int wis;
-  private int dex;
-  private int con;
-  private int cha;
-  private int intel;
-
-
+@AllArgsConstructor
+public class RollableProprety extends BaseEntity {
+  private String name;
+  private String magnitude;
+  private String magnitudeType;
 }

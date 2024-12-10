@@ -1,33 +1,29 @@
 package be.storm.rulecrafterbackend.bll.services.impls;
 
-import be.storm.rulecrafterbackend.bll.character.CharacterDTO;
-import be.storm.rulecrafterbackend.bll.character.ClassType;
 import be.storm.rulecrafterbackend.bll.services.CharacterService;
 import be.storm.rulecrafterbackend.dal.CharacterRepository;
-import be.storm.rulecrafterbackend.dal.DnDRepository;
-import be.storm.rulecrafterbackend.dal.models.classResponse.DnDClassResponse;
 import be.storm.rulecrafterbackend.dl.entities.character.Character;
-import com.fasterxml.jackson.databind.JsonNode;
+import java.util.List;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 @Service
 @RequiredArgsConstructor
 public class CharacterServiceImpl implements CharacterService {
-
   private final CharacterRepository characterRepository;
-  private final DnDRepository dnDRepository;
 
   @Override
-  public CharacterDTO findById(Long id) {
+  public Character findById(Long id) {
+    return characterRepository.findById(id).orElseThrow();
+  }
 
-    Character character = characterRepository.findById(id).orElseThrow();
+  @Override
+  public List<Character> findAll() {
+    return characterRepository.findAll();
+  }
 
-    String classTypeName = character.getClassType();
-
-
-    ClassType classType = dnDRepository.getClassResponse(classTypeName);
-
-    return new CharacterDTO(character, classType);
+  @Override
+  public Character createCharacter(Character character) {
+    return characterRepository.save(character);
   }
 }

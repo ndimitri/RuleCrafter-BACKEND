@@ -1,10 +1,7 @@
 package be.storm.rulecrafterbackend.api.controllers;
-import be.storm.rulecrafterbackend.api.dtos.CharacterFullDTO;
-import be.storm.rulecrafterbackend.bll.character.CharacterDTO;
-import be.storm.rulecrafterbackend.bll.services.CharacterFullService;
+import be.storm.rulecrafterbackend.api.dtos.CharacterDTO;
 import be.storm.rulecrafterbackend.bll.services.CharacterService;
 import be.storm.rulecrafterbackend.dl.entities.character.Character;
-import be.storm.rulecrafterbackend.dl.entities.character.CharacterFull;
 import java.util.List;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
@@ -21,34 +18,23 @@ import org.springframework.web.bind.annotation.RestController;
 public class CharacterController {
 
   private final CharacterService characterService;
-  private final CharacterFullService characterFullService;
-
-
-//  @GetMapping("/{id}")
-//  public ResponseEntity<CharacterDTO> getCharacterById(@PathVariable Long id) {
-//    CharacterDTO characterDTO = characterService.findById(id);
-//    System.out.println(characterDTO);
-//
-//    return ResponseEntity.ok(characterDTO);
-//
-//  }
 
 
   @GetMapping
-  public ResponseEntity<List<CharacterFullDTO>> getCharacters() {
-    List<CharacterFull> characters = characterFullService.getAllCharacters();
-    List<CharacterFullDTO> characterFullDTOs = characters.stream().map(CharacterFullDTO::fromCharacterFull).toList();
+  public ResponseEntity<List<CharacterDTO>> getCharacters() {
+    List<Character> characters = characterService.findAll();
+    List<CharacterDTO> characterDTOs = characters.stream().map(CharacterDTO::fromCharacter).toList();
 
-    return ResponseEntity.ok(characterFullDTOs);
+    return ResponseEntity.ok(characterDTOs);
   }
 
-  @GetMapping("/{id}")
-  public ResponseEntity<CharacterFullDTO> getCharacterById(@PathVariable Long id) {
-    CharacterFull character = characterFullService.getCharacterById(id).orElseThrow();
-    CharacterFullDTO characterFullDTO = CharacterFullDTO.fromCharacterFull(character);
-    System.out.println(character);
 
-    return ResponseEntity.ok(characterFullDTO);
+  @GetMapping("/{id}")
+  public ResponseEntity<CharacterDTO> getCharacterById(@PathVariable Long id) {
+    Character character = characterService.findById(id);
+    CharacterDTO characterDTO = CharacterDTO.fromCharacter(character);
+
+    return ResponseEntity.ok(characterDTO);
 
   }
 

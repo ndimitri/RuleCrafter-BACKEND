@@ -1,11 +1,11 @@
 package be.storm.rulecrafterbackend.bll.services;
-
-import be.storm.rulecrafterbackend.bll.character.CharacterDTO;
 import be.storm.rulecrafterbackend.dl.entities.character.Character;
+import java.util.List;
 
 public interface CharacterService {
-  CharacterDTO findById(Long id);
+  Character findById(Long id);
 
+  List<Character> findAll();
 
-
+  Character createCharacter(Character character);
 }
