@@ -58,18 +58,27 @@ public class Character extends BaseEntity {
   @JoinColumn(name = "character_id")
   private List<ClassLevel> classes = new ArrayList<>();
 
+
   @ElementCollection
   @CollectionTable(name = "saving_throws", joinColumns = @JoinColumn(name = "character_id"))
-  @MapKeyColumn(name = "stat_name")
-  @Column(name = "saving_throw_value")
-  private Map<String, Integer> savingThrows = new HashMap<>();
+  private List<SavingThrow> savingThrows;
+
+//  @ElementCollection
+//  @CollectionTable(name = "saving_throws", joinColumns = @JoinColumn(name = "character_id"))
+//  @MapKeyColumn(name = "stat_name")
+//  @Column(name = "saving_throw_value")
+//  private Map<String, Integer> savingThrows = new HashMap<>();
 
 
   @ElementCollection
   @CollectionTable(name = "proficiencies", joinColumns = @JoinColumn(name = "character_id"))
-  @MapKeyColumn(name = "proficiency_name")
-  @Column(name = "proficiency_level")
-  private Map<String, Proficiency> proficiencies = new HashMap<>();
+  private List<Proficiency> proficiencies;
+
+//  @ElementCollection
+//  @CollectionTable(name = "proficiencies", joinColumns = @JoinColumn(name = "character_id"))
+//  @MapKeyColumn(name = "proficiency_name")
+//  @Column(name = "proficiency_level")
+//  private Map<String, Proficiency> proficiencies = new HashMap<>();
 
   @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
   @JoinColumn(name = "character_id")

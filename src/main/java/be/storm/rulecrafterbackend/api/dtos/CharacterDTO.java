@@ -6,6 +6,7 @@ import be.storm.rulecrafterbackend.dl.entities.character.Description;
 
 import be.storm.rulecrafterbackend.dl.entities.character.Proficiency;
 
+import be.storm.rulecrafterbackend.dl.entities.character.SavingThrow;
 import be.storm.rulecrafterbackend.dl.entities.enums.Alignment;
 import java.util.List;
 import java.util.Map;
@@ -20,8 +21,8 @@ public record CharacterDTO(
     List<StatDTO> stats,
     List<FeatDTO> feats,
     List<ClassLevelDTO> classes,
-    Map<String, Integer> savingThrows,
-    Map<String, Proficiency> proficiencies,
+    List<SavingThrow> savingThrows,
+    List<Proficiency> proficiencies,
     List<SpellDTO> spells,
     List<ItemDTO> items,
     String background

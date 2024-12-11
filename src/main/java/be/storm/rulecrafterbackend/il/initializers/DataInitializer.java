@@ -10,6 +10,7 @@ import be.storm.rulecrafterbackend.dl.entities.character.Feat;
 import be.storm.rulecrafterbackend.dl.entities.character.Item;
 import be.storm.rulecrafterbackend.dl.entities.character.Price;
 import be.storm.rulecrafterbackend.dl.entities.character.Proficiency;
+import be.storm.rulecrafterbackend.dl.entities.character.SavingThrow;
 import be.storm.rulecrafterbackend.dl.entities.character.Spell;
 import be.storm.rulecrafterbackend.dl.entities.character.Stat;
 import be.storm.rulecrafterbackend.dl.entities.enums.Alignment;
@@ -70,21 +71,21 @@ public class DataInitializer implements CommandLineRunner {
       nike.setClasses(classLevels);
 
       // Saving Throws
-      Map<String, Integer> savingThrows = Map.of(
-          "Strength", 0,
-          "Dexterity", 0,
-          "Constitution", 0,
-          "Intelligence", 0,
-          "Wisdom", 0,
-          "Charisma", 0
+      List<SavingThrow> savingThrows = List.of(
+          new SavingThrow("Strength",2),
+          new SavingThrow("Dexterity",0),
+          new SavingThrow("Constitution",0),
+          new SavingThrow("Intelligence",0),
+          new SavingThrow("Wisdom",0),
+          new SavingThrow("Charisma",0)
       );
       nike.setSavingThrows(savingThrows);
 
       // Proficiencies
-      Map<String, Proficiency> proficiencies = Map.of(
-          "Acrobatics", new Proficiency(2, "Dexterity"),
-          "Animal Handling", new Proficiency(0, "Wisdom"),
-          "Arcana", new Proficiency(2, "Intelligence")
+      List<Proficiency> proficiencies = List.of(
+        new Proficiency("Acrobatics", 2, "Dexterity") ,
+        new Proficiency("Arcana", 3, "Intelligence") ,
+        new Proficiency("Animal Handling", 1, "Wisdom")
       );
       nike.setProficiencies(proficiencies);
 
@@ -99,6 +100,7 @@ public class DataInitializer implements CommandLineRunner {
       List<Spell> spells = List.of(
           new Spell("Déluge", SpellLevel.LEVEL_3, MagicSchool.NECROMANCY, "15s", "100m", "5min", "le plus grand champ de bataille morts", List.of())
       );
+      nike.setSpells(spells);
 
 
       // Background
