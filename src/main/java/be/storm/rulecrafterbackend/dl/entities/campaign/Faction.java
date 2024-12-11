@@ -19,6 +19,7 @@ public class Faction extends BaseEntity {
     @Column(nullable = false, length = 1000)
     private String factionDescription;
 
+    @Column
     private String factionPicture;
 
 //    @ManyToOne(fetch = FetchType.EAGER)

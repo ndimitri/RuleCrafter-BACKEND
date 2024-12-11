@@ -2,6 +2,7 @@ package be.storm.rulecrafterbackend.api.controllers;
 
 import be.storm.rulecrafterbackend.api.models.dtos.campaign.CampaignHomeDTO;
 import be.storm.rulecrafterbackend.api.models.dtos.campaign.CampaignOverviewDTO;
+import be.storm.rulecrafterbackend.api.models.dtos.campaign.CampaignWorldOverviewDTO;
 import be.storm.rulecrafterbackend.bll.services.CampaignService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
@@ -30,6 +31,12 @@ public class CampaignController {
     @GetMapping("/{id}")
     public ResponseEntity<CampaignOverviewDTO> getCampaign(@PathVariable Long id) {
         CampaignOverviewDTO dto = CampaignOverviewDTO.fromCampaign(campaignService.findById(id));
+        return ResponseEntity.ok(dto);
+    }
+
+    @GetMapping("/{id}/worldOverview")
+    public ResponseEntity<CampaignWorldOverviewDTO> getWorldOverview(@PathVariable Long id) {
+        CampaignWorldOverviewDTO dto = CampaignWorldOverviewDTO.fromWorldOverview(campaignService.findById(id));
         return ResponseEntity.ok(dto);
     }
 }

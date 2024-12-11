@@ -30,4 +30,10 @@ public class Location extends BaseEntity {
         this.locationDescription = locationDescription;
         this.locationPicture = locationPicture;
     }
+
+    public Location(String locationName, String locationDescription, String locationPicture) {
+        this.locationName = locationName;
+        this.locationDescription = locationDescription;
+        this.locationPicture = locationPicture;
+    }
 }

@@ -1,13 +1,9 @@
 package be.storm.rulecrafterbackend.dl.entities.campaign;
 
 import be.storm.rulecrafterbackend.dl.entities.BaseEntity;
-import be.storm.rulecrafterbackend.dl.entities.quest.MainQuest;
-import be.storm.rulecrafterbackend.dl.entities.quest.SideQuest;
 import jakarta.persistence.*;
 import lombok.*;
-import org.hibernate.annotations.SQLDelete;
 import org.hibernate.validator.constraints.Range;
-import org.springframework.web.multipart.MultipartFile;
 
 @Entity
 //@SQLDelete(sql = "update Campaign set is_deleted = true where id = ?")
@@ -44,6 +40,21 @@ public class Campaign extends BaseEntity {
     @Column
     private String pictureRules;
 
+    @Column
+    private String mainMapPicture;
+
+    @Column
+    private String primaryRacePicture;
+
+    @Column
+    private String factionsPicture;
+
+    @Column
+    private String monstersPicture;
+
+    @Column
+    private String timelinePicture;
+
     @Column(nullable = false)
     private final boolean isDeleted = false;
 
@@ -59,21 +70,21 @@ public class Campaign extends BaseEntity {
 //    @OneToOne(fetch = FetchType.EAGER)
 //    private SideQuest sideQuest;
 
-    public Campaign(String campaignName, String campaignSummary, int minCapacity, int maxCapacity, String partyRecommendation) {
-        this.campaignName = campaignName;
-        this.campaignSummary = campaignSummary;
-        this.minCapacity = minCapacity;
-        this.maxCapacity = maxCapacity;
-        this.partyRecommendation = partyRecommendation;
-    }
-
-    public Campaign(Long id, String campaignName, String campaignSummary, int minCapacity, int maxCapacity) {
-        super(id);
-        this.campaignName = campaignName;
-        this.campaignSummary = campaignSummary;
-        this.minCapacity = minCapacity;
-        this.maxCapacity = maxCapacity;
-    }
+//    public Campaign(String campaignName, String campaignSummary, int minCapacity, int maxCapacity, String partyRecommendation) {
+//        this.campaignName = campaignName;
+//        this.campaignSummary = campaignSummary;
+//        this.minCapacity = minCapacity;
+//        this.maxCapacity = maxCapacity;
+//        this.partyRecommendation = partyRecommendation;
+//    }
+//
+//    public Campaign(Long id, String campaignName, String campaignSummary, int minCapacity, int maxCapacity) {
+//        super(id);
+//        this.campaignName = campaignName;
+//        this.campaignSummary = campaignSummary;
+//        this.minCapacity = minCapacity;
+//        this.maxCapacity = maxCapacity;
+//    }
 
     public Campaign(String campaignName, String campaignSummary, int minCapacity, int maxCapacity, String partyRecommendation,
                     String pictureWorldOverview, String pictureQuestOverview, String pictureRules) {
@@ -87,13 +98,41 @@ public class Campaign extends BaseEntity {
         this.pictureRules = pictureRules;
     }
 
+//    public Campaign(String campaignName, String mainMapPicture, String primaryRacePicture, String factionsPicture,
+//                    String monstersPicture, String timelinePicture) {
+//        this.campaignName = campaignName;
+//        this.mainMapPicture = mainMapPicture;
+//        this.primaryRacePicture = primaryRacePicture;
+//        this.factionsPicture =factionsPicture;
+//        this.monstersPicture = monstersPicture;
+//        this.timelinePicture = timelinePicture;
+//    }
 
-    public Campaign(Long id, String campaignName, int minCapacity, int maxCapacity, String partyRecommendation, String summary) {
-        super(id);
+    public Campaign(String campaignName, String campaignSummary, int minCapacity, int maxCapacity, String partyRecommendation,
+                    String pictureWorldOverview, String pictureQuestOverview, String pictureRules, String mainMapPicture,
+                    String primaryRacePicture, String factionsPicture, String monstersPicture, String timelinePicture) {
         this.campaignName = campaignName;
+        this.campaignSummary = campaignSummary;
         this.minCapacity = minCapacity;
         this.maxCapacity = maxCapacity;
         this.partyRecommendation = partyRecommendation;
-        this.campaignSummary = summary;
+        this.pictureWorldOverview = pictureWorldOverview;
+        this.pictureQuestOverview = pictureQuestOverview;
+        this.pictureRules = pictureRules;
+        this.mainMapPicture = mainMapPicture;
+        this.primaryRacePicture = primaryRacePicture;
+        this.factionsPicture = factionsPicture;
+        this.monstersPicture = monstersPicture;
+        this.timelinePicture = timelinePicture;
     }
+
+
+//    public Campaign(Long id, String campaignName, int minCapacity, int maxCapacity, String partyRecommendation, String summary) {
+//        super(id);
+//        this.campaignName = campaignName;
+//        this.minCapacity = minCapacity;
+//        this.maxCapacity = maxCapacity;
+//        this.partyRecommendation = partyRecommendation;
+//        this.campaignSummary = summary;
+//    }
 }

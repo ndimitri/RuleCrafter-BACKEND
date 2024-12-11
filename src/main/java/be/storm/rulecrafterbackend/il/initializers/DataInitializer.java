@@ -31,9 +31,14 @@ public class DataInitializer implements CommandLineRunner {
                             2,
                             4,
                             "Besoin d'un mage",
-                            "Rule_crafter_1.png",
-                            "Rule_crafter_2.png",
-                            "Rule_crafter_3.png"
+                            "Rule_crafter_1.jpg",
+                            "Rule_crafter_2.jpg",
+                            "Rule_crafter_3.jpg",
+                            "Rule_crafter_4.jpg",
+                            "Rule_crafter_5.jpg",
+                            "Rule_crafter_6.jpg",
+                            "Rule_crafter_7.jpg",
+                            "Rule_crafter_8.jpg"
                     ),
                     new Campaign(
                             "Le Pacte des Mers Brisées",
@@ -45,9 +50,14 @@ public class DataInitializer implements CommandLineRunner {
                             1,
                             3,
                             "Besoin d'un gros tank",
-                            "Rule_crafter_1.png",
-                            "Rule_crafter_2.png",
-                            "Rule_crafter_3.png"
+                            "Rule_crafter_1.jpg",
+                            "Rule_crafter_2.jpg",
+                            "Rule_crafter_3.jpg",
+                            "Rule_crafter_4.jpg",
+                            "Rule_crafter_5.jpg",
+                            "Rule_crafter_6.jpg",
+                            "Rule_crafter_7.jpg",
+                            "Rule_crafter_8.jpg"
                     ),
                     new Campaign(
                             "Les Flammes de l’Empire Cendré",
@@ -59,9 +69,14 @@ public class DataInitializer implements CommandLineRunner {
                             1,
                             5,
                             "Besoin d'un voleur",
-                            "Rule_crafter_1.png",
-                            "Rule_crafter_2.png",
-                            "Rule_crafter_3.png"
+                            "Rule_crafter_1.jpg",
+                            "Rule_crafter_2.jpg",
+                            "Rule_crafter_3.jpg",
+                            "Rule_crafter_4.jpg",
+                            "Rule_crafter_5.jpg",
+                            "Rule_crafter_6.jpg",
+                            "Rule_crafter_7.jpg",
+                            "Rule_crafter_8.jpg"
                     ),
                     new Campaign(
                             "Le Requiem du Dieu Brisé",
@@ -73,9 +88,14 @@ public class DataInitializer implements CommandLineRunner {
                             3,
                             6,
                             "Besoin d'un barde",
-                            "Rule_crafter_1.png",
-                            "Rule_crafter_2.png",
-                            "Rule_crafter_3.png"
+                            "Rule_crafter_1.jpg",
+                            "Rule_crafter_2.jpg",
+                            "Rule_crafter_3.jpg",
+                            "Rule_crafter_4.jpg",
+                            "Rule_crafter_5.jpg",
+                            "Rule_crafter_6.jpg",
+                            "Rule_crafter_7.jpg",
+                            "Rule_crafter_8.jpg"
                     ),
                     new Campaign(
                             "La Chute des Étoiles d’Argent",
@@ -87,9 +107,14 @@ public class DataInitializer implements CommandLineRunner {
                             1,
                             2,
                             "Besoin d'une team full stuff",
-                            "Rule_crafter_1.png",
-                            "Rule_crafter_2.png",
-                            "Rule_crafter_3.png"
+                            "Rule_crafter_1.jpg",
+                            "Rule_crafter_2.jpg",
+                            "Rule_crafter_3.jpg",
+                            "Rule_crafter_4.jpg",
+                            "Rule_crafter_5.jpg",
+                            "Rule_crafter_6.jpg",
+                            "Rule_crafter_7.jpg",
+                            "Rule_crafter_8.jpg"
                     ),
                     new Campaign(
                             "Les Ombres de l’Arche Interdite",
@@ -102,9 +127,14 @@ public class DataInitializer implements CommandLineRunner {
                             3,
                             5,
                             "Besoin de rien envie de toiiiiiii",
-                            "Rule_crafter_1.png",
-                            "Rule_crafter_2.png",
-                            "Rule_crafter_3.png"
+                            "Rule_crafter_1.jpg",
+                            "Rule_crafter_2.jpg",
+                            "Rule_crafter_3.jpg",
+                            "Rule_crafter_4.jpg",
+                            "Rule_crafter_5.jpg",
+                            "Rule_crafter_6.jpg",
+                            "Rule_crafter_7.jpg",
+                            "Rule_crafter_8.jpg"
                     )
             );
             campaignRepository.saveAll(campaigns);
