@@ -1,6 +1,8 @@
 package be.storm.rulecrafterbackend.dl.entities.campaign;
 
 import be.storm.rulecrafterbackend.dl.entities.BaseEntity;
+import be.storm.rulecrafterbackend.dl.entities.quest.MainQuest;
+import be.storm.rulecrafterbackend.dl.entities.quest.SideQuest;
 import jakarta.persistence.*;
 import lombok.*;
 import org.hibernate.validator.constraints.Range;
@@ -58,17 +60,17 @@ public class Campaign extends BaseEntity {
     @Column(nullable = false)
     private final boolean isDeleted = false;
 
-//    @OneToOne(fetch = FetchType.EAGER)
-//    private Region region;
-//
-//    @OneToOne(fetch = FetchType.EAGER)
-//    private Scenario scenario;
-//
-//    @OneToOne(fetch = FetchType.EAGER)
-//    private MainQuest mainQuest;
-//
-//    @OneToOne(fetch = FetchType.EAGER)
-//    private SideQuest sideQuest;
+    @OneToOne(fetch = FetchType.LAZY)
+    private Region region;
+
+    @OneToOne(fetch = FetchType.LAZY)
+    private Scenario scenario;
+
+    @OneToOne(fetch = FetchType.LAZY)
+    private MainQuest mainQuest;
+
+    @OneToOne(fetch = FetchType.LAZY)
+    private SideQuest sideQuest;
 
 //    public Campaign(String campaignName, String campaignSummary, int minCapacity, int maxCapacity, String partyRecommendation) {
 //        this.campaignName = campaignName;

@@ -22,8 +22,8 @@ public class Objective extends BaseEntity {
     @Column(nullable = false)
     private String objectiveDescription;
 
-//    @OneToOne(fetch = FetchType.EAGER)
-//    private Quest quest;
+    @OneToOne(fetch = FetchType.EAGER)
+    private Quest quest;
 
     public Objective(Long id, String objectiveName, boolean optional, String objectiveDescription) {
         super(id);

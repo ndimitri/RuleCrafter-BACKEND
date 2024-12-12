@@ -3,6 +3,7 @@ package be.storm.rulecrafterbackend.api.models.dtos.campaign;
 import be.storm.rulecrafterbackend.dl.entities.campaign.Campaign;
 
 public record CampaignOverviewDTO(
+        Long id,
         String campaignName,
         String campaignSummary,
         int minCapacity,
@@ -15,6 +16,7 @@ public record CampaignOverviewDTO(
 
     public static CampaignOverviewDTO fromCampaign(Campaign campaign) {
         return new CampaignOverviewDTO(
+                campaign.getId(),
                 campaign.getCampaignName(),
                 campaign.getCampaignSummary(),
                 campaign.getMinCapacity(),

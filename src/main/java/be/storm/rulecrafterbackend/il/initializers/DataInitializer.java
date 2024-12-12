@@ -2,6 +2,7 @@ package be.storm.rulecrafterbackend.il.initializers;
 
 import be.storm.rulecrafterbackend.dal.repositories.campaign.CampaignRepository;
 import be.storm.rulecrafterbackend.dl.entities.campaign.Campaign;
+import be.storm.rulecrafterbackend.dl.entities.campaign.Location;
 import lombok.RequiredArgsConstructor;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
@@ -138,6 +139,36 @@ public class DataInitializer implements CommandLineRunner {
                     )
             );
             campaignRepository.saveAll(campaigns);
+
+            List<Location> locations = List.of(
+                    new Location(
+                            "Main Map",
+                            "The campaign is set in the region of Aldenyr, a diverse and ancient land filled" +
+                                    "with intrigue and peril.",
+                            "picture"
+                    ),
+                    new Location(
+                            "Eldara (City of Shadows)",
+                            "A sprawling metropolis where the campaign begins. Known for its towering black spires and shadowy " +
+                                    "underbelly, it serves as both a hub of commerce and a battleground of political factions.",
+                            "picture"
+                    ),
+                    new Location(
+                            "The Umbral Forest",
+                            "A cursed woodland teeming with shadow creatures and strange flora. Few who venture here return unscathed.",
+                            "picture"
+                    ),
+                    new Location(
+                            "The Temple of Radiance",
+                            "An ancient shrine on a mountaintop, rumored to be the source of light that once vanquished the Umbral King.",
+                            "picture"
+                    ),
+                    new Location(
+                            "The Blackened Mire",
+                            " A treacherous swamp where undead and fiends are said to dwell, protecting ancient secrets.",
+                            "picture"
+                    )
+            );
         }
     }
 }

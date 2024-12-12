@@ -3,6 +3,7 @@ package be.storm.rulecrafterbackend.bll.services.impls;
 import be.storm.rulecrafterbackend.bll.services.CampaignService;
 import be.storm.rulecrafterbackend.dal.repositories.campaign.CampaignRepository;
 import be.storm.rulecrafterbackend.dl.entities.campaign.Campaign;
+import be.storm.rulecrafterbackend.dl.entities.campaign.Region;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
@@ -35,23 +36,7 @@ public class CampaignServiceImpl implements CampaignService {
     }
 
     @Override
-    public Campaign save(Campaign campaign, MultipartFile picture) {
-
-        if (picture != null && !picture.isEmpty()) {
-//            campaign.setPicture(savePicture(picture));
-        }
-        return campaignRepository.save(campaign);
-    }
-
-    private String savePicture(MultipartFile picture) {
-
-        String pictureName = (UUID.randomUUID() + "_" + picture.getOriginalFilename());
-        Path picturePath = Path.of(System.getProperty("user.dir"), "pictures", pictureName);
-        try {
-            Files.write(picturePath, picture.getBytes());
-            return pictureName;
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
+    public List<Region> findByRegionId(Long regionId) {
+        return campaignRepository.findByRegionId(regionId);
     }
 }

@@ -22,8 +22,8 @@ public class Faction extends BaseEntity {
     @Column
     private String factionPicture;
 
-//    @ManyToOne(fetch = FetchType.EAGER)
-//    private Campaign campaign;
+    @ManyToOne(fetch = FetchType.EAGER)
+    private Campaign campaign;
 
     public Faction(Long id, String factionName, String factionDescription, String factionPicture) {
         super(id);

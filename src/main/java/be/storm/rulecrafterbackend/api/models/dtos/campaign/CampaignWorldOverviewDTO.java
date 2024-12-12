@@ -4,6 +4,7 @@ import be.storm.rulecrafterbackend.dl.entities.campaign.Campaign;
 import be.storm.rulecrafterbackend.dl.entities.campaign.Faction;
 
 public record CampaignWorldOverviewDTO(
+        Long id,
         String campaignName,
         String mainMapPicture,
         String primaryRacePicture,
@@ -13,6 +14,7 @@ public record CampaignWorldOverviewDTO(
 ) {
     public static CampaignWorldOverviewDTO fromWorldOverview(Campaign campaign) {
         return new CampaignWorldOverviewDTO(
+                campaign.getId(),
                 campaign.getCampaignName(),
                 campaign.getMainMapPicture(),
                 campaign.getPrimaryRacePicture(),
