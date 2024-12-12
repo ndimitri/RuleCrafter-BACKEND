@@ -43,7 +43,7 @@ public class DataInitializer implements CommandLineRunner {
       nike.setName("Theo Bernardus");
       nike.setHp(15);
       nike.setRace("human");
-      nike.setAlignment(Alignment.CHAOTIC_NEUTRAL);
+      nike.setAlignment(Alignment.LAWFUL_GOOD);
       nike.setBackstory("Un membre de la secte X au carré");
 
       // Description
@@ -123,7 +123,7 @@ public class DataInitializer implements CommandLineRunner {
       character2.setName("Nikus Dimitrius");
       character2.setHp(20);
       character2.setRace("elf");
-      character2.setAlignment(Alignment.CHAOTIC_EVIL);
+      character2.setAlignment(Alignment.NEUTRAL_EVIL);
       character2.setBackstory("Loup solitaire en quête d'aventure et de repoussement de ses limites. Il se balade à la recherche d'un maître au sommet de l'art de l'épée");
 
       // Description
