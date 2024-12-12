@@ -12,6 +12,7 @@ import java.util.List;
 import java.util.Map;
 
 public record CharacterDTO(
+    Long id,
     String name,
     int hp,
     String race,
@@ -30,6 +31,7 @@ public record CharacterDTO(
 
   public static CharacterDTO fromCharacter(Character character) {
     return new CharacterDTO(
+        character.getId(),
         character.getName(),
         character.getHp(),
         character.getRace(),
