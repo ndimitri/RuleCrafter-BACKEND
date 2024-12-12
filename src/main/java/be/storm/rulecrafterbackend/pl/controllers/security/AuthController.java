@@ -12,6 +12,7 @@ import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
 @CrossOrigin("*")
 @RestController
@@ -23,11 +24,11 @@ public class AuthController {
     private final JwtUtils jwtUtils;
     private final AuthService authService;
 
-    public ResponseEntity<User> registerUser(@RequestBody RegisterForm form) {
-
-        authService.register(form.toUser());
-        return ResponseEntity.noContent().build();
-    }
+//    public ResponseEntity<User> registerUser(@RequestBody RegisterForm form) {
+//
+//        authService.register(form.toUser());
+//        return ResponseEntity.noContent().build();
+//    }
 
     @PostMapping("/login")
     public ResponseEntity<UserTokenDTO> login(
@@ -39,11 +40,12 @@ public class AuthController {
         return ResponseEntity.ok(tokenDTO);
     }
 
-    @PostMapping("/register")
+    @PostMapping(value = "/register")
     public ResponseEntity<Void> register(
-            @Valid @RequestBody RegisterForm form
+            @RequestPart(name = "image", required = false) MultipartFile image,
+            @RequestPart(name = "form") RegisterForm form
     ) {
-        authService.register(form.toUser());
+        authService.register(form.toUser(), image);
         return ResponseEntity.noContent().build();
     }
 }

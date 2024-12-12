@@ -1,11 +1,10 @@
 package be.storm.rulecrafterbackend.dl.entities.user;
 
 import be.storm.rulecrafterbackend.dl.entities.BaseEntity;
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Table;
-import lombok.EqualsAndHashCode;
-import lombok.NoArgsConstructor;
-import lombok.ToString;
+import lombok.*;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -13,15 +12,25 @@ import org.springframework.security.core.userdetails.UserDetails;
 import java.util.Collection;
 import java.util.List;
 
+@Setter
 @Entity
 @Table(name = "user_")
 @NoArgsConstructor
+@Getter
 @EqualsAndHashCode(callSuper = true) @ToString(callSuper = true)
 public class User extends BaseEntity implements UserDetails {
 
+    @Column(nullable = false, unique = true, length = 123)
     private String username;
+
+    @Column(nullable = false)
     private String password;
+
+    @Column(nullable = false, unique = true)
     private String email;
+
+    @Column(nullable = true)
+    private String picture;
 
     public User(String username, String password) {
         this.username = username;
@@ -39,15 +48,11 @@ public class User extends BaseEntity implements UserDetails {
         this.password = password;
     }
 
-
-
-    public String getUsername() {
-        return username;
-    }
-
-
-    public void setUsername(String username) {
+    public User(String username, String password, String email, String picture) {
         this.username = username;
+        this.password = password;
+        this.email = email;
+        this.picture = picture;
     }
 
     @Override
@@ -55,21 +60,6 @@ public class User extends BaseEntity implements UserDetails {
         return List.of(new SimpleGrantedAuthority("USER"));
     }
 
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
     @Override
     public boolean isAccountNonExpired() {
         return UserDetails.super.isAccountNonExpired();

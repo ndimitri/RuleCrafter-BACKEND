@@ -8,6 +8,12 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
+
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.util.UUID;
 
 @Service
 @RequiredArgsConstructor
@@ -17,10 +23,16 @@ public class AuthServiceImpl implements AuthService {
     private final PasswordEncoder passwordEncoder;
 
     @Override
-    public void register(User user) {
+    public void register(User user, MultipartFile image) {
         if(userRepository.existsByUsernameOrEmail(user.getUsername(),user.getEmail())){
             throw new RuntimeException("User with mail " + user.getEmail() + " already exists");
         }
+
+        if(!image.isEmpty()){
+            String imageUrl = saveImage(image);
+            user.setPicture(imageUrl);
+        }
+
         user.setPassword(passwordEncoder.encode(user.getPassword()));
         userRepository.save(user);
     }
@@ -37,5 +49,17 @@ public class AuthServiceImpl implements AuthService {
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         return userRepository.findByUsername(username).orElseThrow();
+    }
+
+    private String saveImage(MultipartFile image) {
+
+        String imageName = UUID.randomUUID() + "_" + image.getOriginalFilename();
+        Path imagePath = Path.of(System.getProperty("user.dir"), "images", imageName);
+        try {
+            Files.write(imagePath, image.getBytes());
+            return imageName;
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
 }
