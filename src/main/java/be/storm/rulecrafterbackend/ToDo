@@ -1,1 +1,4 @@
 //ToDo Connect user to campaign
+
+    - Add region to controller
+    - make questTyp an enum

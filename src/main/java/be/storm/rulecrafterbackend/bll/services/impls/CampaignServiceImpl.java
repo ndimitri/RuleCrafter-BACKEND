@@ -8,10 +8,12 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
+import javax.swing.text.html.Option;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.List;
+import java.util.Optional;
 import java.util.UUID;
 
 @Service
@@ -36,7 +38,13 @@ public class CampaignServiceImpl implements CampaignService {
     }
 
     @Override
-    public List<Region> findByRegionId(Long regionId) {
-        return campaignRepository.findByRegionId(regionId);
+    public Campaign findByCampaignId(Long id) {
+        Campaign campaign = campaignRepository.findByCampaignId(id).orElseThrow();
+        return campaign;
+    }
+
+    @Override
+    public Campaign save(Campaign campaign) {
+        return campaignRepository.save(campaign);
     }
 }

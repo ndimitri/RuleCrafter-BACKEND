@@ -2,6 +2,8 @@ package be.storm.rulecrafterbackend.api.models.dtos.campaign;
 
 import be.storm.rulecrafterbackend.dl.entities.campaign.Campaign;
 
+import java.util.Optional;
+
 public record CampaignRegionOverviewDTO(
         long id,
         String campaignName,

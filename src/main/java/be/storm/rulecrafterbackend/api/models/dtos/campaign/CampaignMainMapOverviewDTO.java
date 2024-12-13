@@ -23,6 +23,9 @@ public class CampaignMainMapOverviewDTO {
     }
 
     public static CampaignMainMapOverviewDTO fromCampaign(Campaign campaign){
-        return new CampaignMainMapOverviewDTO(campaign.getId(),campaign.getCampaignName());
+        return new CampaignMainMapOverviewDTO(
+                campaign.getId(),
+                campaign.getCampaignName()
+        );
     }
 }

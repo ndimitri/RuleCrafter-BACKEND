@@ -1,8 +1,10 @@
 package be.storm.rulecrafterbackend.il.initializers;
 
 import be.storm.rulecrafterbackend.dal.repositories.campaign.CampaignRepository;
+import be.storm.rulecrafterbackend.dal.repositories.campaign.RegionRepository;
 import be.storm.rulecrafterbackend.dl.entities.campaign.Campaign;
 import be.storm.rulecrafterbackend.dl.entities.campaign.Location;
+import be.storm.rulecrafterbackend.dl.entities.campaign.Region;
 import lombok.RequiredArgsConstructor;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
@@ -14,11 +16,20 @@ import java.util.List;
 public class DataInitializer implements CommandLineRunner {
 
     private final CampaignRepository campaignRepository;
+    private final RegionRepository regionRepository;
 
     @Override
     public void run(String... args) throws Exception {
 
         if(campaignRepository.count() == 0) {
+
+            Region region = new Region(
+                    "Aldenyr",
+                    "The campaign is set in the region of Aldenyr, a diverse and ancient land filled with intrigue and peril.",
+                    "Rule_crafter_12.jpg"
+            );
+            regionRepository.save(region);
+
 
             List<Campaign> campaigns = List.of(
                     new Campaign(
@@ -39,7 +50,8 @@ public class DataInitializer implements CommandLineRunner {
                             "Rule_crafter_5.jpg",
                             "Rule_crafter_6.jpg",
                             "Rule_crafter_7.jpg",
-                            "Rule_crafter_8.jpg"
+                            "Rule_crafter_8.jpg",
+                            region
                     ),
                     new Campaign(
                             "Le Pacte des Mers Brisées",
@@ -58,7 +70,8 @@ public class DataInitializer implements CommandLineRunner {
                             "Rule_crafter_5.jpg",
                             "Rule_crafter_6.jpg",
                             "Rule_crafter_7.jpg",
-                            "Rule_crafter_8.jpg"
+                            "Rule_crafter_8.jpg",
+                            region
                     ),
                     new Campaign(
                             "Les Flammes de l’Empire Cendré",
@@ -77,7 +90,8 @@ public class DataInitializer implements CommandLineRunner {
                             "Rule_crafter_5.jpg",
                             "Rule_crafter_6.jpg",
                             "Rule_crafter_7.jpg",
-                            "Rule_crafter_8.jpg"
+                            "Rule_crafter_8.jpg",
+                            region
                     ),
                     new Campaign(
                             "Le Requiem du Dieu Brisé",
@@ -96,7 +110,8 @@ public class DataInitializer implements CommandLineRunner {
                             "Rule_crafter_5.jpg",
                             "Rule_crafter_6.jpg",
                             "Rule_crafter_7.jpg",
-                            "Rule_crafter_8.jpg"
+                            "Rule_crafter_8.jpg",
+                            region
                     ),
                     new Campaign(
                             "La Chute des Étoiles d’Argent",
@@ -115,7 +130,8 @@ public class DataInitializer implements CommandLineRunner {
                             "Rule_crafter_5.jpg",
                             "Rule_crafter_6.jpg",
                             "Rule_crafter_7.jpg",
-                            "Rule_crafter_8.jpg"
+                            "Rule_crafter_8.jpg",
+                            region
                     ),
                     new Campaign(
                             "Les Ombres de l’Arche Interdite",
@@ -135,7 +151,8 @@ public class DataInitializer implements CommandLineRunner {
                             "Rule_crafter_5.jpg",
                             "Rule_crafter_6.jpg",
                             "Rule_crafter_7.jpg",
-                            "Rule_crafter_8.jpg"
+                            "Rule_crafter_8.jpg",
+                            region
                     )
             );
             campaignRepository.saveAll(campaigns);

@@ -18,4 +18,9 @@ public class LocationServiceImpl implements LocationService {
     public List<Location> findByCampaignId(Long campaignId) {
         return locationRepository.findByCampaignId(campaignId);
     }
+
+    @Override
+    public Location save(Location location) {
+        return locationRepository.save(location);
+    }
 }

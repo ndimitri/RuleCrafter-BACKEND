@@ -5,10 +5,12 @@ import be.storm.rulecrafterbackend.dl.entities.campaign.Region;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.util.List;
+import java.util.Optional;
 
 public interface CampaignService {
 
     List<Campaign> findAll();
     Campaign findById(Long id);
-    List<Region> findByRegionId(Long regionId);
+    Campaign findByCampaignId(Long id);
+    Campaign save(Campaign campaign);
 }

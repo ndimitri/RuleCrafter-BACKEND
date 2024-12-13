@@ -29,11 +29,20 @@ public abstract class Quest extends BaseEntity {
     @Column(nullable = false, length = 80)
     private String questTrigger;
 
-    @Column(nullable = false)
+    @Column(nullable = false, length = 80)
     private String questReward;
 
     public Quest(Long id, String questName, String questGoal, String questDescription, String questType, String questTrigger, String questReward) {
         super(id);
+        this.questName = questName;
+        this.questGoal = questGoal;
+        this.questDescription = questDescription;
+        this.questType = questType;
+        this.questTrigger = questTrigger;
+        this.questReward = questReward;
+    }
+
+    public Quest(String questName, String questGoal, String questDescription, String questType, String questTrigger, String questReward) {
         this.questName = questName;
         this.questGoal = questGoal;
         this.questDescription = questDescription;

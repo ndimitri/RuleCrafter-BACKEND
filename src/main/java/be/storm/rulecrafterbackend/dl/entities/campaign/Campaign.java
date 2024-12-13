@@ -24,7 +24,7 @@ public class Campaign extends BaseEntity {
     private int minCapacity;
 
     @Column(nullable = false)
-    @Range(min = 0, max = 10)
+    @Range(min = 1, max = 10)
     private int maxCapacity;
 
     @Column(nullable = false, length = 500)
@@ -60,7 +60,7 @@ public class Campaign extends BaseEntity {
     @Column(nullable = false)
     private final boolean isDeleted = false;
 
-    @OneToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.LAZY)
     private Region region;
 
     @OneToOne(fetch = FetchType.LAZY)
@@ -71,22 +71,6 @@ public class Campaign extends BaseEntity {
 
     @OneToOne(fetch = FetchType.LAZY)
     private SideQuest sideQuest;
-
-//    public Campaign(String campaignName, String campaignSummary, int minCapacity, int maxCapacity, String partyRecommendation) {
-//        this.campaignName = campaignName;
-//        this.campaignSummary = campaignSummary;
-//        this.minCapacity = minCapacity;
-//        this.maxCapacity = maxCapacity;
-//        this.partyRecommendation = partyRecommendation;
-//    }
-//
-//    public Campaign(Long id, String campaignName, String campaignSummary, int minCapacity, int maxCapacity) {
-//        super(id);
-//        this.campaignName = campaignName;
-//        this.campaignSummary = campaignSummary;
-//        this.minCapacity = minCapacity;
-//        this.maxCapacity = maxCapacity;
-//    }
 
     public Campaign(String campaignName, String campaignSummary, int minCapacity, int maxCapacity, String partyRecommendation,
                     String pictureWorldOverview, String pictureQuestOverview, String pictureRules) {
@@ -100,19 +84,9 @@ public class Campaign extends BaseEntity {
         this.pictureRules = pictureRules;
     }
 
-//    public Campaign(String campaignName, String mainMapPicture, String primaryRacePicture, String factionsPicture,
-//                    String monstersPicture, String timelinePicture) {
-//        this.campaignName = campaignName;
-//        this.mainMapPicture = mainMapPicture;
-//        this.primaryRacePicture = primaryRacePicture;
-//        this.factionsPicture =factionsPicture;
-//        this.monstersPicture = monstersPicture;
-//        this.timelinePicture = timelinePicture;
-//    }
-
     public Campaign(String campaignName, String campaignSummary, int minCapacity, int maxCapacity, String partyRecommendation,
                     String pictureWorldOverview, String pictureQuestOverview, String pictureRules, String mainMapPicture,
-                    String primaryRacePicture, String factionsPicture, String monstersPicture, String timelinePicture) {
+                    String primaryRacePicture, String factionsPicture, String monstersPicture, String timelinePicture, Region region) {
         this.campaignName = campaignName;
         this.campaignSummary = campaignSummary;
         this.minCapacity = minCapacity;
@@ -126,15 +100,16 @@ public class Campaign extends BaseEntity {
         this.factionsPicture = factionsPicture;
         this.monstersPicture = monstersPicture;
         this.timelinePicture = timelinePicture;
+        this.region = region;
+    }
+
+    public Campaign(String campaignName, String campaignSummary, int minCapacity, int maxCapacity, String partyRecommendation) {
+        this.campaignName = campaignName;
+        this.campaignSummary = campaignSummary;
+        this.minCapacity = minCapacity;
+        this.maxCapacity = maxCapacity;
+        this.partyRecommendation = partyRecommendation;
     }
 
 
-//    public Campaign(Long id, String campaignName, int minCapacity, int maxCapacity, String partyRecommendation, String summary) {
-//        super(id);
-//        this.campaignName = campaignName;
-//        this.minCapacity = minCapacity;
-//        this.maxCapacity = maxCapacity;
-//        this.partyRecommendation = partyRecommendation;
-//        this.campaignSummary = summary;
-//    }
 }

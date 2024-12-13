@@ -15,7 +15,14 @@ public class FactionServiceImpl implements FactionService {
     private final FactionRepository factionRepository;
 
     @Override
+    public Faction save(Faction faction) {
+        return factionRepository.save(faction);
+    }
+
+    @Override
     public List<Faction> findByCampaignId(Long campaignId) {
         return factionRepository.findByCampaignId(campaignId);
+
+
     }
 }

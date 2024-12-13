@@ -3,13 +3,11 @@ package be.storm.rulecrafterbackend.dl.entities.campaign;
 import be.storm.rulecrafterbackend.dl.entities.BaseEntity;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
-import jakarta.persistence.FetchType;
-import jakarta.persistence.OneToOne;
 import lombok.*;
 
 @Entity
 @Getter @Setter
-@NoArgsConstructor @AllArgsConstructor
+@NoArgsConstructor
 @EqualsAndHashCode(callSuper = true) @ToString(callSuper = true)
 public class Region extends BaseEntity {
 
@@ -21,10 +19,14 @@ public class Region extends BaseEntity {
 
     private String regionPicture;
 
-    public Region(Long id, String regionName, String regionDescription, String regionPicture) {
-        super(id);
+    public Region(String regionName, String regionDescription, String regionPicture) {
         this.regionName = regionName;
         this.regionDescription = regionDescription;
         this.regionPicture = regionPicture;
+    }
+
+    public Region(String regionName, String regionDescription) {
+        this.regionName = regionName;
+        this.regionDescription = regionDescription;
     }
 }

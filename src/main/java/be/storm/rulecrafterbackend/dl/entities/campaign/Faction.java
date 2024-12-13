@@ -31,4 +31,15 @@ public class Faction extends BaseEntity {
         this.factionDescription= factionDescription;
         this.factionPicture = factionPicture;
     }
+
+    public Faction(String factionName, String factionDescription, String factionPicture) {
+        this.factionName = factionName;
+        this.factionDescription = factionDescription;
+        this.factionPicture = factionPicture;
+    }
+
+    public Faction(String factionName, String factionDescription) {
+        this.factionName = factionName;
+        this.factionDescription = factionDescription;
+    }
 }

@@ -7,6 +7,7 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
+import java.util.Optional;
 
 @Repository
 public interface CampaignRepository extends JpaRepository<Campaign, Long> {
@@ -14,6 +15,8 @@ public interface CampaignRepository extends JpaRepository<Campaign, Long> {
     @Query("select c from Campaign c where c.isDeleted = false")
     List<Campaign> findAllActive();
 
-    @Query("select c from Campaign c join c.region r where r.id = :regionId")
-    List<Region> findByRegionId(Long regionId);
+    @Query("select c from Campaign c join c.region r where c.id = :campaignId")
+    Optional<Campaign> findByCampaignId(Long campaignId);
+
+
 }
