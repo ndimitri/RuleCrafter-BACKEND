@@ -3,6 +3,7 @@ package be.storm.rulecrafterbackend.bll.services.security.impls;
 import be.storm.rulecrafterbackend.bll.services.security.AuthService;
 import be.storm.rulecrafterbackend.dal.repositories.UserRepository;
 import be.storm.rulecrafterbackend.dl.entities.user.User;
+import be.storm.rulecrafterbackend.api.models.dtos.user.UserDTO;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
@@ -28,7 +29,7 @@ public class AuthServiceImpl implements AuthService {
             throw new RuntimeException("User with mail " + user.getEmail() + " already exists");
         }
 
-        if(!image.isEmpty()){
+        if(image != null && !image.isEmpty()){
             String imageUrl = saveImage(image);
             user.setPicture(imageUrl);
         }
@@ -46,10 +47,26 @@ public class AuthServiceImpl implements AuthService {
         return existingUser;
     }
 
+    public User updateProfile(User user, UserDTO userDTO, MultipartFile image) {
+
+        user.setUsername(userDTO.username());
+        user.setEmail(userDTO.email());
+
+
+        if (image != null && !image.isEmpty()) {
+            String imageUrl = saveImage(image);
+            user.setPicture(imageUrl);
+        }
+
+        return userRepository.save(user);
+    }
+
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         return userRepository.findByUsername(username).orElseThrow();
     }
+
+
 
     private String saveImage(MultipartFile image) {
 

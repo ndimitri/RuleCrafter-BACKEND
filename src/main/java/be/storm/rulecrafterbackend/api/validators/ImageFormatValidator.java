@@ -1,6 +1,6 @@
-package be.storm.rulecrafterbackend.pl.validators;
+package be.storm.rulecrafterbackend.api.validators;
 
-import be.storm.rulecrafterbackend.pl.validators.annotations.ImageFormat;
+import be.storm.rulecrafterbackend.api.validators.annotations.ImageFormat;
 import jakarta.validation.ConstraintValidator;
 import jakarta.validation.ConstraintValidatorContext;
 import org.springframework.web.multipart.MultipartFile;

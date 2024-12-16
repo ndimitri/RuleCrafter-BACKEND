@@ -1,6 +1,6 @@
-package be.storm.rulecrafterbackend.pl.validators.annotations;
+package be.storm.rulecrafterbackend.api.validators.annotations;
 
-import be.storm.rulecrafterbackend.pl.validators.ImageFormatValidator;
+import be.storm.rulecrafterbackend.api.validators.ImageFormatValidator;
 import jakarta.validation.Constraint;
 import jakarta.validation.Payload;
 
