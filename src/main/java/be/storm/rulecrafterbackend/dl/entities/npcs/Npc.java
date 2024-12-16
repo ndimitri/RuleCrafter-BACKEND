@@ -23,4 +23,6 @@ public class Npc extends BaseEntity {
         this.npcName = npcName;
         this.npcDescription = npcDescription;
     }
+
+
 }

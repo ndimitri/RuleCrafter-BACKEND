@@ -85,7 +85,7 @@ public class CampaignController {
 
     //region CAMPAIGN_BASICS_CREATION
 
-    @PostMapping("/campaign/campaignCreation/basicsInfo")
+    @PostMapping("/campaignCreation/basicsInfo")
     public ResponseEntity<Void> createCampaignBasicInfos(
             @Valid @RequestBody CampaignBasicsInfoCreationForm campaignBasicsInfoForm,
             BindingResult bindingResult
@@ -106,7 +106,7 @@ public class CampaignController {
 
     //region CAMPAIGN_WORLD_BUILDING
 
-    @PostMapping("/campaign/campaignCreation/region")
+    @PostMapping("/campaignCreation/region")
     public ResponseEntity<Void> createCampaignRegion(
             @Valid @RequestBody CampaignRegionCreationForm campaignRegionCreationForm,
             BindingResult bindingResult
@@ -123,7 +123,7 @@ public class CampaignController {
         return ResponseEntity.noContent().build();
     }
 
-    @PostMapping("/campaign/campaignCreation/location")
+    @PostMapping("/campaignCreation/location")
     public ResponseEntity<Void> createCampaignLocation(
             @Valid @RequestBody CampaignLocationCreationForm campaignLocationCreationForm,
             BindingResult bindingResult
@@ -140,7 +140,7 @@ public class CampaignController {
         return ResponseEntity.noContent().build();
     }
 
-    @PostMapping("/campaign/campaignCreation/faction")
+    @PostMapping("/campaignCreation/faction")
     public ResponseEntity<Void> createCampaignFaction(
             @Valid @RequestBody CampaignFactionCreationForm campaignFactionCreationForm,
             BindingResult bindingResult
@@ -157,7 +157,7 @@ public class CampaignController {
         return ResponseEntity.noContent().build();
     }
 
-    @PostMapping("/campaign/campaignCreation/npc")
+    @PostMapping("/campaignCreation/npc")
     public  ResponseEntity<Void> createCampaignNpc(
             @Valid @RequestBody CampaignNpcCreationForm campaignNpcCreationForm,
             BindingResult bindingResult
@@ -178,7 +178,7 @@ public class CampaignController {
 
     //region CAMPAIGN_QUEST_CREATION
 
-    @PostMapping("/campaign/campaignCreation/mainQuest")
+    @PostMapping("/campaignCreation/mainQuest")
     public ResponseEntity<Void> createCmapaignMainQuest(
             @Valid @RequestBody CampaignMainQuestCreationForm campaignMainQuestCreationForm,
             BindingResult bindingResult
@@ -195,7 +195,7 @@ public class CampaignController {
         return ResponseEntity.noContent().build();
     }
 
-    @PostMapping("/campaign/campaignCreation/sideQuest")
+    @PostMapping("/campaignCreation/sideQuest")
     public ResponseEntity<Void> createCampaignSideQuest(
             @Valid @RequestBody CampaignSideQuestCreationForm campaignSideQuestCreationForm,
             BindingResult bindingResult
@@ -216,7 +216,7 @@ public class CampaignController {
 
     //region CAMPAIGN_SCENARIO_CREATION
 
-    @PostMapping("/campaign/campaignCreation/scenario")
+    @PostMapping("/campaignCreation/scenario")
     public ResponseEntity<Void> createCampaignScenario(
             @Valid @RequestBody CampaignScenarioCreationForm campaignScenarioCreationForm,
             BindingResult bindingResult

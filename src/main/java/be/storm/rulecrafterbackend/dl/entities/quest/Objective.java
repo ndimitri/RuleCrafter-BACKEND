@@ -17,18 +17,20 @@ public class Objective extends BaseEntity {
     private String objectiveName;
 
     @Column(nullable = false)
-    private boolean optional;
-
-    @Column(nullable = false)
     private String objectiveDescription;
 
     @OneToOne(fetch = FetchType.EAGER)
     private Quest quest;
 
-    public Objective(Long id, String objectiveName, boolean optional, String objectiveDescription) {
+    public Objective(Long id, String objectiveName, String objectiveDescription) {
         super(id);
         this.objectiveName = objectiveName;
-        this.optional = optional;
         this.objectiveDescription = objectiveDescription;
+    }
+
+    public Objective(String objectiveName, String objectiveDescription, Quest quest) {
+        this.objectiveName = objectiveName;
+        this.objectiveDescription = objectiveDescription;
+        this.quest = quest;
     }
 }
