@@ -1,5 +1,6 @@
 package be.storm.rulecrafterbackend.bll.services.security.impls;
 
+import be.storm.rulecrafterbackend.api.models.forms.user.UserForm;
 import be.storm.rulecrafterbackend.bll.services.security.AuthService;
 import be.storm.rulecrafterbackend.dal.repositories.UserRepository;
 import be.storm.rulecrafterbackend.dl.entities.user.User;
@@ -47,10 +48,10 @@ public class AuthServiceImpl implements AuthService {
         return existingUser;
     }
 
-    public User updateProfile(User user, UserDTO userDTO, MultipartFile image) {
+    public User updateProfile(User user, UserForm form, MultipartFile image) {
 
-        user.setUsername(userDTO.username());
-        user.setEmail(userDTO.email());
+        user.setUsername(form.username());
+        user.setEmail(form.email());
 
 
         if (image != null && !image.isEmpty()) {

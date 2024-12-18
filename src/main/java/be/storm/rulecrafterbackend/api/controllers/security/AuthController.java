@@ -1,5 +1,6 @@
 package be.storm.rulecrafterbackend.api.controllers.security;
 
+import be.storm.rulecrafterbackend.api.models.forms.user.UserForm;
 import be.storm.rulecrafterbackend.bll.services.UserService;
 import be.storm.rulecrafterbackend.bll.services.security.AuthService;
 import be.storm.rulecrafterbackend.dl.entities.user.User;
@@ -28,7 +29,7 @@ public class AuthController {
 
 
     @PostMapping("/login")
-    @PreAuthorize("permitAll()")
+    @PreAuthorize("isAnonymous()")
     public ResponseEntity<UserTokenDTO> login(@Valid @RequestBody LoginForm form) {
         User user = authService.login(form.toUser());
         UserDTO dto = UserDTO.fromUser(user);
@@ -37,7 +38,7 @@ public class AuthController {
     }
 
     @PostMapping("/register")
-    @PreAuthorize("permitAll()")
+    @PreAuthorize("isAnonymous()")
     public ResponseEntity<Void> register(
             @RequestPart(name = "image", required = false) MultipartFile image,
             @RequestPart(name = "form") RegisterForm form
@@ -50,11 +51,11 @@ public class AuthController {
     @PutMapping("/profile")
     public ResponseEntity<UserDTO> updateProfile(
             @RequestPart(name = "image", required = false) MultipartFile image,
-            @RequestPart(name = "form") UserDTO userDTO,
+            @RequestPart(name = "form") UserForm form,
             Authentication authentication
     ) {
         User user = (User) authentication.getPrincipal();
-        User updatedUser = authService.updateProfile(user, userDTO, image);
+        User updatedUser = authService.updateProfile(user, form, image);
         return ResponseEntity.ok(UserDTO.fromUser(updatedUser));
     }
 
