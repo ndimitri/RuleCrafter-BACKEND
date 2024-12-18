@@ -11,10 +11,18 @@ import lombok.*;
 @EqualsAndHashCode(callSuper = true) @ToString(callSuper = true)
 public class Scenario extends BaseEntity {
 
+    @Column(nullable = false, length = 123)
+    private String storyName;
+
     @Column(nullable = false, length = 100_000)
     private String story;
 
     public Scenario(String story) {
+        this.story = story;
+    }
+
+    public Scenario(String storyName, String story) {
+        this.storyName = storyName;
         this.story = story;
     }
 }

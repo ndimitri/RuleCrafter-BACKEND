@@ -8,7 +8,6 @@ import lombok.*;
 import org.hibernate.validator.constraints.Range;
 
 @Entity
-//@SQLDelete(sql = "update Campaign set is_deleted = true where id = ?")
 @NoArgsConstructor
 @Getter @Setter
 @EqualsAndHashCode(callSuper = true)
