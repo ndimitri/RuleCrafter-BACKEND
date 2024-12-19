@@ -1,4 +1,4 @@
-package be.storm.rulecrafterbackend.api.dtos;
+package be.storm.rulecrafterbackend.api.models.dtos.character;
 
 import be.storm.rulecrafterbackend.dl.entities.character.ClassLevel;
 

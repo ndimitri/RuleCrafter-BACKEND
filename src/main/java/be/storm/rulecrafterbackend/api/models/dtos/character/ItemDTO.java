@@ -1,10 +1,9 @@
-package be.storm.rulecrafterbackend.api.dtos;
+package be.storm.rulecrafterbackend.api.models.dtos.character;
 
 import be.storm.rulecrafterbackend.dl.entities.character.Item;
 import be.storm.rulecrafterbackend.dl.entities.character.Price;
-import be.storm.rulecrafterbackend.dl.entities.character.RollableProprety;
-import be.storm.rulecrafterbackend.dl.entities.enums.ItemRarity;
-import be.storm.rulecrafterbackend.dl.entities.enums.ItemType;
+import be.storm.rulecrafterbackend.dl.entities.enums.character.ItemRarity;
+import be.storm.rulecrafterbackend.dl.entities.enums.character.ItemType;
 import java.util.List;
 
 public record ItemDTO(

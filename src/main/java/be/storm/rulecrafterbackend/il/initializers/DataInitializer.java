@@ -1,6 +1,6 @@
 package be.storm.rulecrafterbackend.il.initializers;
 
-import be.storm.rulecrafterbackend.dal.CharacterRepository;
+import be.storm.rulecrafterbackend.dal.character.CharacterRepository;
 
 import be.storm.rulecrafterbackend.dl.entities.character.Character;
 
@@ -10,18 +10,16 @@ import be.storm.rulecrafterbackend.dl.entities.character.Feat;
 import be.storm.rulecrafterbackend.dl.entities.character.Item;
 import be.storm.rulecrafterbackend.dl.entities.character.Price;
 import be.storm.rulecrafterbackend.dl.entities.character.Proficiency;
-import be.storm.rulecrafterbackend.dl.entities.character.RollableProprety;
 import be.storm.rulecrafterbackend.dl.entities.character.SavingThrow;
 import be.storm.rulecrafterbackend.dl.entities.character.Spell;
 import be.storm.rulecrafterbackend.dl.entities.character.Stat;
-import be.storm.rulecrafterbackend.dl.entities.enums.Alignment;
-import be.storm.rulecrafterbackend.dl.entities.enums.ItemRarity;
-import be.storm.rulecrafterbackend.dl.entities.enums.ItemType;
-import be.storm.rulecrafterbackend.dl.entities.enums.MagicSchool;
-import be.storm.rulecrafterbackend.dl.entities.enums.SpellLevel;
+import be.storm.rulecrafterbackend.dl.entities.enums.character.Alignment;
+import be.storm.rulecrafterbackend.dl.entities.enums.character.ItemRarity;
+import be.storm.rulecrafterbackend.dl.entities.enums.character.ItemType;
+import be.storm.rulecrafterbackend.dl.entities.enums.character.MagicSchool;
+import be.storm.rulecrafterbackend.dl.entities.enums.character.SpellLevel;
 
 import java.util.List;
-import java.util.Map;
 import lombok.RequiredArgsConstructor;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;

@@ -1,10 +1,9 @@
 package be.storm.rulecrafterbackend.dl.entities.character;
 
 import be.storm.rulecrafterbackend.dl.entities.BaseEntity;
-import be.storm.rulecrafterbackend.dl.entities.enums.ItemRarity;
-import be.storm.rulecrafterbackend.dl.entities.enums.ItemType;
+import be.storm.rulecrafterbackend.dl.entities.enums.character.ItemRarity;
+import be.storm.rulecrafterbackend.dl.entities.enums.character.ItemType;
 import jakarta.persistence.CascadeType;
-import jakarta.persistence.Embeddable;
 import jakarta.persistence.Embedded;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;

@@ -1,7 +1,7 @@
-package be.storm.rulecrafterbackend.bll.services.impls;
+package be.storm.rulecrafterbackend.bll.services.character.impls;
 
-import be.storm.rulecrafterbackend.bll.services.CharacterService;
-import be.storm.rulecrafterbackend.dal.CharacterRepository;
+import be.storm.rulecrafterbackend.bll.services.character.CharacterService;
+import be.storm.rulecrafterbackend.dal.character.CharacterRepository;
 import be.storm.rulecrafterbackend.dl.entities.character.Character;
 import java.util.List;
 import lombok.RequiredArgsConstructor;

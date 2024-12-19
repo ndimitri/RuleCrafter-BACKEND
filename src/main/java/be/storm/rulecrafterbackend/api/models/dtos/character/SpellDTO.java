@@ -1,9 +1,8 @@
-package be.storm.rulecrafterbackend.api.dtos;
+package be.storm.rulecrafterbackend.api.models.dtos.character;
 
-import be.storm.rulecrafterbackend.dl.entities.character.RollableProprety;
 import be.storm.rulecrafterbackend.dl.entities.character.Spell;
-import be.storm.rulecrafterbackend.dl.entities.enums.MagicSchool;
-import be.storm.rulecrafterbackend.dl.entities.enums.SpellLevel;
+import be.storm.rulecrafterbackend.dl.entities.enums.character.MagicSchool;
+import be.storm.rulecrafterbackend.dl.entities.enums.character.SpellLevel;
 import java.util.List;
 
 public record SpellDTO(

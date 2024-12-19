@@ -1,8 +1,8 @@
 package be.storm.rulecrafterbackend.dl.entities.character;
 
 import be.storm.rulecrafterbackend.dl.entities.BaseEntity;
-import be.storm.rulecrafterbackend.dl.entities.enums.MagicSchool;
-import be.storm.rulecrafterbackend.dl.entities.enums.SpellLevel;
+import be.storm.rulecrafterbackend.dl.entities.enums.character.MagicSchool;
+import be.storm.rulecrafterbackend.dl.entities.enums.character.SpellLevel;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;

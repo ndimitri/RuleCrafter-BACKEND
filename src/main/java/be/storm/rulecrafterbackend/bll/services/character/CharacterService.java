@@ -1,4 +1,4 @@
-package be.storm.rulecrafterbackend.bll.services;
+package be.storm.rulecrafterbackend.bll.services.character;
 import be.storm.rulecrafterbackend.dl.entities.character.Character;
 import java.util.List;
 

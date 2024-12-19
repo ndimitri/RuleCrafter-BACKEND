@@ -1,6 +1,6 @@
-package be.storm.rulecrafterbackend.api.controllers;
-import be.storm.rulecrafterbackend.api.dtos.CharacterDTO;
-import be.storm.rulecrafterbackend.bll.services.CharacterService;
+package be.storm.rulecrafterbackend.api.controllers.character;
+import be.storm.rulecrafterbackend.api.models.dtos.character.CharacterDTO;
+import be.storm.rulecrafterbackend.bll.services.character.CharacterService;
 import be.storm.rulecrafterbackend.dl.entities.character.Character;
 import java.util.List;
 import lombok.RequiredArgsConstructor;

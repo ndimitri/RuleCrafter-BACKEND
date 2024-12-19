@@ -1,4 +1,4 @@
-package be.storm.rulecrafterbackend.il.configuration;
+package be.storm.rulecrafterbackend.il.configs;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.method.configuration.EnableMethodSecurity;

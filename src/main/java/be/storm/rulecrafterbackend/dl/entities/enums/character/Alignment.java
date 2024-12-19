@@ -1,8 +1,7 @@
-package be.storm.rulecrafterbackend.dl.entities.enums;
+package be.storm.rulecrafterbackend.dl.entities.enums.character;
 
 
 import lombok.Getter;
-import lombok.NoArgsConstructor;
 
 @Getter
 public enum Alignment {
@@ -17,8 +16,5 @@ public enum Alignment {
   CHAOTIC_GOOD,
   CHAOTIC_EVIL,
   CHAOTIC_NEUTRAL;
-
-
-
 
 }

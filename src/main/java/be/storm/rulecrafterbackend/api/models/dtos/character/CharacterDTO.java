@@ -1,4 +1,4 @@
-package be.storm.rulecrafterbackend.api.dtos;
+package be.storm.rulecrafterbackend.api.models.dtos.character;
 
 import be.storm.rulecrafterbackend.dl.entities.character.Character;
 
@@ -7,9 +7,8 @@ import be.storm.rulecrafterbackend.dl.entities.character.Description;
 import be.storm.rulecrafterbackend.dl.entities.character.Proficiency;
 
 import be.storm.rulecrafterbackend.dl.entities.character.SavingThrow;
-import be.storm.rulecrafterbackend.dl.entities.enums.Alignment;
+import be.storm.rulecrafterbackend.dl.entities.enums.character.Alignment;
 import java.util.List;
-import java.util.Map;
 
 public record CharacterDTO(
     Long id,

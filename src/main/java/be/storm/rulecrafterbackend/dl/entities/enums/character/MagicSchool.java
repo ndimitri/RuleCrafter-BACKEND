@@ -1,4 +1,4 @@
-package be.storm.rulecrafterbackend.dl.entities.enums;
+package be.storm.rulecrafterbackend.dl.entities.enums.character;
 
 public enum MagicSchool {
   ABJURATION,
