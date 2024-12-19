@@ -356,6 +356,318 @@ public class DataInitializer implements CommandLineRunner {
                 character2.setBackground("Ermite");
 
                 characterRepository.save(character2);
+
+
+
+                // Création Character 3
+                Character lyra = new Character();
+                lyra.setName("Lyra Moonshadow");
+                lyra.setHp(12);
+                lyra.setRace("elf");
+                lyra.setAlignment(Alignment.CHAOTIC_GOOD);
+                lyra.setBackstory("Gardienne des anciens secrets de la forêt d'Aetherea");
+
+// Description
+                Description descriptionLyra = new Description("120", "165cm", "55kg", "green", "silver", "pale");
+                lyra.setDescription(descriptionLyra);
+
+// Stats
+                List<Stat> statsLyra = List.of(
+                    new Stat("strength", "str", 8),
+                    new Stat("dexterity", "dex", 15),
+                    new Stat("constitution", "con", 10),
+                    new Stat("intelligence", "int", 14),
+                    new Stat("wisdom", "wis", 12),
+                    new Stat("charisma", "cha", 13)
+                );
+                lyra.setStats(statsLyra);
+
+// Feats
+                List<Feat> featsLyra = List.of(
+                    new Feat("Keen Senses", "You have proficiency in the Perception skill.", List.of()),
+                    new Feat("Fey Ancestry", "Advantage on saving throws against being charmed.", List.of())
+                );
+                lyra.setFeats(featsLyra);
+
+// Classes
+                List<ClassLevel> classLevelsLyra = List.of(
+                    new ClassLevel("ranger", 2)
+                );
+                lyra.setClasses(classLevelsLyra);
+
+// Saving Throws
+                List<SavingThrow> savingThrowsLyra = List.of(
+                    new SavingThrow("Strength", 0),
+                    new SavingThrow("Dexterity", 4),
+                    new SavingThrow("Constitution", 1),
+                    new SavingThrow("Intelligence", 2),
+                    new SavingThrow("Wisdom", 3),
+                    new SavingThrow("Charisma", 1)
+                );
+                lyra.setSavingThrows(savingThrowsLyra);
+
+// Proficiencies
+                List<Proficiency> proficienciesLyra = List.of(
+                    new Proficiency("Nature", 4, "int"),
+                    new Proficiency("Perception", 5, "wis"),
+                    new Proficiency("Stealth", 4, "dex")
+                );
+                lyra.setProficiencies(proficienciesLyra);
+
+// Items
+                List<Item> itemsLyra = List.of(
+                    new Item("Moonlit Bow", "Arc magique infusé par la lumière lunaire", "3kg", ItemRarity.RARE, ItemType.WEAPON, new Price(25, "gold"), List.of()),
+                    new Item("Forest Cloak", "Cape dissimulant son porteur dans les ombres des bois", "1kg", ItemRarity.UNCOMMON, ItemType.ARMOR, new Price(15, "gold"), List.of())
+                );
+                lyra.setItems(itemsLyra);
+
+// Spells
+                List<Spell> spellsLyra = List.of(
+                    new Spell("Entangle", SpellLevel.LEVEL_1, MagicSchool.CONJURATION, "1 action", "30m", "1 minute", "Vines sprout from the ground to restrain enemies.", List.of()),
+                    new Spell("Hunter's Mark", SpellLevel.LEVEL_1, MagicSchool.DIVINATION, "1 bonus action", "90m", "1 hour", "Marks an enemy for increased damage.", List.of())
+                );
+                lyra.setSpells(spellsLyra);
+
+// Background
+                lyra.setBackground("Outlander");
+
+// Sauvegarde
+                characterRepository.save(lyra);
+
+                //Character 4
+                Character valdrak = new Character();
+                valdrak.setName("Valdrak Ironfist");
+                valdrak.setHp(18);
+                valdrak.setRace("dwarf");
+                valdrak.setAlignment(Alignment.LAWFUL_NEUTRAL);
+                valdrak.setBackstory("Ancien capitaine de la garde des mines de Kharak'Zhul.");
+
+// Description
+                valdrak.setDescription(new Description("75", "140cm", "80kg", "blue", "red", "tan"));
+
+// Stats
+                valdrak.setStats(List.of(
+                    new Stat("strength", "str", 16),
+                    new Stat("dexterity", "dex", 10),
+                    new Stat("constitution", "con", 18),
+                    new Stat("intelligence", "int", 8),
+                    new Stat("wisdom", "wis", 12),
+                    new Stat("charisma", "cha", 9)
+                ));
+
+// Feats
+                valdrak.setFeats(List.of(
+                    new Feat("Stone Resilience", "Resistance to poison damage.", List.of()),
+                    new Feat("Shield Master", "Adds shield AC to Dexterity saving throws.", List.of())
+                ));
+
+// Classes
+                valdrak.setClasses(List.of(new ClassLevel("fighter", 3)));
+
+// Saving Throws
+                valdrak.setSavingThrows(List.of(
+                    new SavingThrow("Strength", 5),
+                    new SavingThrow("Dexterity", 1),
+                    new SavingThrow("Constitution", 6)
+                ));
+
+// Proficiencies
+                valdrak.setProficiencies(List.of(
+                    new Proficiency("Athletics", 5, "str"),
+                    new Proficiency("Survival", 3, "wis")
+                ));
+
+// Items
+                valdrak.setItems(List.of(
+                    new Item("Warhammer", "Martel lourd de guerre", "7kg", ItemRarity.UNCOMMON, ItemType.WEAPON, new Price(20, "gold"), List.of()
+                )));
+
+// Spells
+                valdrak.setSpells(List.of());  // Aucun sort
+
+// Background
+                valdrak.setBackground("Soldier");
+
+                characterRepository.save(valdrak);
+
+                //Character 5
+                Character elenya = new Character();
+                elenya.setName("Elenya Faereth");
+                elenya.setHp(8);
+                elenya.setRace("elf");
+                elenya.setAlignment(Alignment.CHAOTIC_NEUTRAL);
+                elenya.setBackstory("Prêtresse errante d'une déesse oubliée.");
+
+// Description
+                elenya.setDescription(new Description("150", "165cm", "60kg", "green", "silver", "pale"));
+
+// Stats
+                elenya.setStats(List.of(
+                    new Stat("strength", "str", 8),
+                    new Stat("dexterity", "dex", 14),
+                    new Stat("constitution", "con", 10),
+                    new Stat("intelligence", "int", 17),
+                    new Stat("wisdom", "wis", 12),
+                    new Stat("charisma", "cha", 15)
+                ));
+
+// Feats
+                elenya.setFeats(List.of(
+                    new Feat("Mystic Vision", "See magical auras.", List.of()),
+                    new Feat("Arcane Recovery", "Recover spell slots.", List.of())
+                ));
+
+// Classes
+                elenya.setClasses(List.of(new ClassLevel("sorcerer", 3)));
+
+// Saving Throws
+                elenya.setSavingThrows(List.of(
+                    new SavingThrow("Intelligence", 5),
+                    new SavingThrow("Charisma", 4)
+                ));
+
+// Proficiencies
+                elenya.setProficiencies(List.of(
+                    new Proficiency("Arcana", 5, "int"),
+                    new Proficiency("Persuasion", 4, "cha")
+                ));
+
+// Items
+                elenya.setItems(List.of(
+                    new Item("Staff of the Moon", "Bâton magique mystique", "4kg", ItemRarity.RARE, ItemType.WEAPON, new Price(50, "gold"), List.of())
+                ));
+
+// Spells
+                elenya.setSpells(List.of(
+                    new Spell("Magic Missile", SpellLevel.LEVEL_1, MagicSchool.EVOCATION, "1 action", "120m", "instant", "Bolts of magical force.", List.of()),
+                    new Spell("Charm Person", SpellLevel.LEVEL_1, MagicSchool.ENCHANTMENT, "1 action", "9m", "1 hour", "Charm an enemy.", List.of())
+                ));
+
+// Background
+                elenya.setBackground("Hermit");
+
+                characterRepository.save(elenya);
+
+                //Character 6
+                Character kaelen = new Character();
+                kaelen.setName("Kaelen Thorne");
+                kaelen.setHp(12);
+                kaelen.setRace("human");
+                kaelen.setAlignment(Alignment.CHAOTIC_NEUTRAL);
+                kaelen.setBackstory("Ancien espion de la guilde des Ombres, il cherche à échapper à son passé.");
+
+// Description
+                kaelen.setDescription(new Description("28", "180cm", "75kg", "gray", "black", "pale"));
+
+// Stats
+                kaelen.setStats(List.of(
+                    new Stat("strength", "str", 10),
+                    new Stat("dexterity", "dex", 17),
+                    new Stat("constitution", "con", 12),
+                    new Stat("intelligence", "int", 13),
+                    new Stat("wisdom", "wis", 10),
+                    new Stat("charisma", "cha", 14)
+                ));
+
+// Feats
+                kaelen.setFeats(List.of(
+                    new Feat("Sneak Attack", "Deal extra damage when attacking with advantage.", List.of()),
+                    new Feat("Cunning Action", "Take a bonus action to dash, disengage, or hide.", List.of())
+                ));
+
+// Classes
+                kaelen.setClasses(List.of(new ClassLevel("rogue", 3)));
+
+// Saving Throws
+                kaelen.setSavingThrows(List.of(
+                    new SavingThrow("Dexterity", 5),
+                    new SavingThrow("Intelligence", 3)
+                ));
+
+// Proficiencies
+                kaelen.setProficiencies(List.of(
+                    new Proficiency("Stealth", 6, "dex"),
+                    new Proficiency("Sleight of Hand", 5, "dex"),
+                    new Proficiency("Deception", 4, "cha")
+                ));
+
+// Items
+                kaelen.setItems(List.of(
+                    new Item("Shadow Cloak", "Cloak that blends with darkness.", "3kg", ItemRarity.RARE, ItemType.ARMOR, new Price(60, "gold"), List.of()),
+                    new Item("Dagger of Silence", "Enchanted dagger that silences its victim.", "1kg", ItemRarity.UNCOMMON, ItemType.WEAPON, new Price(40, "gold"), List.of())
+                ));
+
+// Spells
+                kaelen.setSpells(List.of());  // Aucun sort
+
+// Background
+                kaelen.setBackground("Spy");
+
+                characterRepository.save(kaelen);
+
+
+                //Character 7
+                Character myra = new Character();
+                myra.setName("Myra Dawnsworn");
+                myra.setHp(20);
+                myra.setRace("human");
+                myra.setAlignment(Alignment.LAWFUL_GOOD);
+                myra.setBackstory("Bénie par le dieu de la lumière, elle combat les ténèbres et défend les opprimés.");
+
+// Description
+                myra.setDescription(new Description("32", "175cm", "70kg", "blue", "blonde", "fair"));
+
+// Stats
+                myra.setStats(List.of(
+                    new Stat("strength", "str", 16),
+                    new Stat("dexterity", "dex", 11),
+                    new Stat("constitution", "con", 14),
+                    new Stat("intelligence", "int", 10),
+                    new Stat("wisdom", "wis", 13),
+                    new Stat("charisma", "cha", 15)
+                ));
+
+// Feats
+                myra.setFeats(List.of(
+                    new Feat("Divine Smite", "Add radiant damage to weapon attacks.", List.of()),
+                    new Feat("Lay on Hands", "Heal wounds with divine energy.", List.of())
+                ));
+
+// Classes
+                myra.setClasses(List.of(new ClassLevel("paladin", 3)));
+
+// Saving Throws
+                myra.setSavingThrows(List.of(
+                    new SavingThrow("Wisdom", 4),
+                    new SavingThrow("Charisma", 5)
+                ));
+
+// Proficiencies
+                myra.setProficiencies(List.of(
+                    new Proficiency("Persuasion", 5, "cha"),
+                    new Proficiency("Insight", 4, "wis"),
+                    new Proficiency("Athletics", 4, "str")
+                ));
+
+// Items
+                myra.setItems(List.of(
+                    new Item("Dawnblade", "Holy sword blessed by the light.", "4kg", ItemRarity.LEGENDARY, ItemType.WEAPON, new Price(100, "gold"), List.of()),
+                    new Item("Aegis Shield", "Magically enchanted shield.", "5kg", ItemRarity.RARE, ItemType.ARMOR, new Price(75, "gold"), List.of())
+                ));
+
+// Spells
+                myra.setSpells(List.of(
+                    new Spell("Bless", SpellLevel.LEVEL_1, MagicSchool.ENCHANTMENT, "1 action", "30ft", "1min", "Add bonuses to allies' attacks.", List.of()),
+                    new Spell("Cure Wounds", SpellLevel.LEVEL_1, MagicSchool.EVOCATION, "1 action", "Touch", "instant", "Heal an ally's wounds.", List.of())
+                ));
+
+// Background
+                myra.setBackground("Knight");
+
+                characterRepository.save(myra);
+
+
+
             }
         }
     }
