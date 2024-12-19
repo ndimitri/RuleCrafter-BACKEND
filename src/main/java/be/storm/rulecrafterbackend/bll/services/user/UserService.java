@@ -1,6 +1,6 @@
-package be.storm.rulecrafterbackend.bll.services;
+package be.storm.rulecrafterbackend.bll.services.user;
 
-import be.storm.rulecrafterbackend.dal.repositories.UserRepository;
+import be.storm.rulecrafterbackend.dal.repositories.user.UserRepository;
 import be.storm.rulecrafterbackend.dl.entities.user.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;

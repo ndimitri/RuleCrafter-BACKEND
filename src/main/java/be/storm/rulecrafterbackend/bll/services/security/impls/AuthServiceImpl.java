@@ -2,9 +2,8 @@ package be.storm.rulecrafterbackend.bll.services.security.impls;
 
 import be.storm.rulecrafterbackend.api.models.forms.user.UserForm;
 import be.storm.rulecrafterbackend.bll.services.security.AuthService;
-import be.storm.rulecrafterbackend.dal.repositories.UserRepository;
+import be.storm.rulecrafterbackend.dal.repositories.user.UserRepository;
 import be.storm.rulecrafterbackend.dl.entities.user.User;
-import be.storm.rulecrafterbackend.api.models.dtos.user.UserDTO;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;

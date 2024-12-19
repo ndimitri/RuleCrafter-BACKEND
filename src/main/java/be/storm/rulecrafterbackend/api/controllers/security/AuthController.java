@@ -1,7 +1,7 @@
 package be.storm.rulecrafterbackend.api.controllers.security;
 
 import be.storm.rulecrafterbackend.api.models.forms.user.UserForm;
-import be.storm.rulecrafterbackend.bll.services.UserService;
+import be.storm.rulecrafterbackend.bll.services.user.UserService;
 import be.storm.rulecrafterbackend.bll.services.security.AuthService;
 import be.storm.rulecrafterbackend.dl.entities.user.User;
 import be.storm.rulecrafterbackend.il.utils.JwtUtils;

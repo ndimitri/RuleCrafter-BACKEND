@@ -1,4 +1,4 @@
-package be.storm.rulecrafterbackend.dal.repositories;
+package be.storm.rulecrafterbackend.dal.repositories.user;
 
 import be.storm.rulecrafterbackend.dl.entities.user.User;
 import org.springframework.data.jpa.repository.JpaRepository;
