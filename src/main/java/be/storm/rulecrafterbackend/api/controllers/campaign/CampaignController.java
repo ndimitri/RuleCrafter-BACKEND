@@ -4,7 +4,7 @@ import be.storm.rulecrafterbackend.api.models.dtos.campaign.*;
 import be.storm.rulecrafterbackend.api.models.dtos.location.FactionDTO;
 import be.storm.rulecrafterbackend.api.models.dtos.location.LocationDTO;
 import be.storm.rulecrafterbackend.api.models.forms.campaign.*;
-import be.storm.rulecrafterbackend.bll.services.*;
+import be.storm.rulecrafterbackend.bll.services.campaign.*;
 import be.storm.rulecrafterbackend.dl.entities.campaign.*;
 import be.storm.rulecrafterbackend.dl.entities.npcs.Npc;
 import be.storm.rulecrafterbackend.dl.entities.quest.MainQuest;
@@ -33,7 +33,6 @@ public class CampaignController {
     private final MainQuestService mainQuestService;
     private final SideQuestService sideQuestService;
     private final ScenarioService scenarioService;
-    private final CampaignInfoContainerService campaignInfoContainerService;
 
 
     //region CAMPAIGN_OVERVIEW
@@ -236,28 +235,23 @@ public class CampaignController {
 
     //endregion
 
-    @PostMapping("/campaignCreation/campaignContainer")
-    public ResponseEntity<Void> createCampaignContainer(
-            @Valid @RequestBody CampaignCreationAssemblingForm campaignCreationAssemblingForm,
-            BindingResult bindingResult
-    ) {
-        if(bindingResult.hasErrors()) {
-            List<String> errors = bindingResult.getAllErrors().stream().map(DefaultMessageSourceResolvable::getDefaultMessage).toList();
-            throw new ValidationException("Validation Error : " + errors);
-        }
-
-        CampaignInfoContainer campaignInfoContainer = campaignCreationAssemblingForm.toCampaignCreationAssemblingForm();
-        campaignInfoContainerService.save(campaignInfoContainer);
-
-        return ResponseEntity.noContent().build();
-    }
-
-    @GetMapping("/campaignCreation/campaignContainer")
-    public ResponseEntity<List<CampaignCreationAssemblingDTO>> getCampaignCreationAssembling() {
-        List<CampaignCreationAssemblingDTO> campaigns = campaignInfoContainerService.findAll()
-                .stream()
-                .map(CampaignCreationAssemblingDTO::fromCampaignCreationAssemblingDTO)
-                .toList();
-        return ResponseEntity.ok(campaigns);
-    }
+//    @PostMapping("/campaignCreation/campaignContainer")
+//    public ResponseEntity<Void> createCampaignContainer(
+//            @Valid @RequestBody CampaignCreationAssemblingForm campaignCreationAssemblingForm
+//    ) {
+//
+//        campaignCreationAssemblingForm.toCampaignCreationAssemblingForm();
+//        campaignInfoContainerService.save(campaignInfoContainer);
+//
+//        return ResponseEntity.noContent().build();
+//    }
+//
+//    @GetMapping("/campaignCreation/campaignContainer")
+//    public ResponseEntity<List<CampaignCreationAssemblingDTO>> getCampaignCreationAssembling() {
+//        List<CampaignCreationAssemblingDTO> campaigns = campaignInfoContainerService.findAll()
+//                .stream()
+//                .map(CampaignCreationAssemblingDTO::fromCampaignCreationAssemblingDTO)
+//                .toList();
+//        return ResponseEntity.ok(campaigns);
+//    }
 }

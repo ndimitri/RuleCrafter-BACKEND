@@ -1,6 +1,6 @@
-package be.storm.rulecrafterbackend.bll.services.impls;
+package be.storm.rulecrafterbackend.bll.services.campaign.impls;
 
-import be.storm.rulecrafterbackend.bll.services.ObjectiveService;
+import be.storm.rulecrafterbackend.bll.services.campaign.ObjectiveService;
 import be.storm.rulecrafterbackend.dal.repositories.quest.ObjectiveRepository;
 import be.storm.rulecrafterbackend.dl.entities.quest.Objective;
 import lombok.RequiredArgsConstructor;

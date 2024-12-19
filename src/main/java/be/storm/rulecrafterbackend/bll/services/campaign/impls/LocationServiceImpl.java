@@ -1,6 +1,6 @@
-package be.storm.rulecrafterbackend.bll.services.impls;
+package be.storm.rulecrafterbackend.bll.services.campaign.impls;
 
-import be.storm.rulecrafterbackend.bll.services.LocationService;
+import be.storm.rulecrafterbackend.bll.services.campaign.LocationService;
 import be.storm.rulecrafterbackend.dal.repositories.campaign.LocationRepository;
 import be.storm.rulecrafterbackend.dl.entities.campaign.Location;
 import lombok.RequiredArgsConstructor;

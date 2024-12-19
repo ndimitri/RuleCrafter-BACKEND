@@ -1,6 +1,6 @@
-package be.storm.rulecrafterbackend.bll.services.impls;
+package be.storm.rulecrafterbackend.bll.services.campaign.impls;
 
-import be.storm.rulecrafterbackend.bll.services.FactionService;
+import be.storm.rulecrafterbackend.bll.services.campaign.FactionService;
 import be.storm.rulecrafterbackend.dal.repositories.campaign.FactionRepository;
 import be.storm.rulecrafterbackend.dl.entities.campaign.Faction;
 import lombok.RequiredArgsConstructor;

@@ -1,4 +1,4 @@
-package be.storm.rulecrafterbackend.bll.services;
+package be.storm.rulecrafterbackend.bll.services.campaign;
 
 import be.storm.rulecrafterbackend.dl.entities.quest.SideQuest;
 

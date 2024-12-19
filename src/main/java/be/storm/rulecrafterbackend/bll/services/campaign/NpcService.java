@@ -1,7 +1,6 @@
-package be.storm.rulecrafterbackend.bll.services;
+package be.storm.rulecrafterbackend.bll.services.campaign;
 
 import be.storm.rulecrafterbackend.dl.entities.npcs.Npc;
-import org.springframework.stereotype.Service;
 
 public interface NpcService {
 

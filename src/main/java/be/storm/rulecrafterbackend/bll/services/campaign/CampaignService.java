@@ -1,11 +1,8 @@
-package be.storm.rulecrafterbackend.bll.services;
+package be.storm.rulecrafterbackend.bll.services.campaign;
 
 import be.storm.rulecrafterbackend.dl.entities.campaign.Campaign;
-import be.storm.rulecrafterbackend.dl.entities.campaign.Region;
-import org.springframework.web.multipart.MultipartFile;
 
 import java.util.List;
-import java.util.Optional;
 
 public interface CampaignService {
 

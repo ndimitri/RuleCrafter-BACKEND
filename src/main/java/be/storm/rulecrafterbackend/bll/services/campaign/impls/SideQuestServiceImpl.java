@@ -1,6 +1,6 @@
-package be.storm.rulecrafterbackend.bll.services.impls;
+package be.storm.rulecrafterbackend.bll.services.campaign.impls;
 
-import be.storm.rulecrafterbackend.bll.services.SideQuestService;
+import be.storm.rulecrafterbackend.bll.services.campaign.SideQuestService;
 import be.storm.rulecrafterbackend.dal.repositories.quest.SideQuestRepository;
 import be.storm.rulecrafterbackend.dl.entities.quest.SideQuest;
 import lombok.RequiredArgsConstructor;

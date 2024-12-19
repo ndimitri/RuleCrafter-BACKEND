@@ -1,20 +1,12 @@
-package be.storm.rulecrafterbackend.bll.services.impls;
+package be.storm.rulecrafterbackend.bll.services.campaign.impls;
 
-import be.storm.rulecrafterbackend.bll.services.CampaignService;
+import be.storm.rulecrafterbackend.bll.services.campaign.CampaignService;
 import be.storm.rulecrafterbackend.dal.repositories.campaign.CampaignRepository;
 import be.storm.rulecrafterbackend.dl.entities.campaign.Campaign;
-import be.storm.rulecrafterbackend.dl.entities.campaign.Region;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
-import org.springframework.web.multipart.MultipartFile;
 
-import javax.swing.text.html.Option;
-import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Path;
 import java.util.List;
-import java.util.Optional;
-import java.util.UUID;
 
 @Service
 @RequiredArgsConstructor

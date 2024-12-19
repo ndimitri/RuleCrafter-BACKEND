@@ -1,6 +1,6 @@
-package be.storm.rulecrafterbackend.bll.services.impls;
+package be.storm.rulecrafterbackend.bll.services.campaign.impls;
 
-import be.storm.rulecrafterbackend.bll.services.RegionService;
+import be.storm.rulecrafterbackend.bll.services.campaign.RegionService;
 import be.storm.rulecrafterbackend.dal.repositories.campaign.RegionRepository;
 import be.storm.rulecrafterbackend.dl.entities.campaign.Region;
 import lombok.RequiredArgsConstructor;
